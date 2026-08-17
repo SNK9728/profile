@@ -14,7 +14,7 @@
     "linkedin": "https://www.linkedin.com/in/navin-kumar-singaravelan-812a70387?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     "degree": "B.E. Electronics and Communication Engineering",
     "eduStatus": "Engineering Student",
-    "institution": "B.E. ECE College",
+    "institution": "SIMATS University, Chennai",
     "cgpa": "8.8 / 10",
     "year": "2026",
     "skillsLang": "HTML, CSS, JavaScript, C, C++",
@@ -24,12 +24,14 @@
   "certificates": [
     {
       "id": "cert-1",
-      "title": "Embedded Systems & Microcontroller Architecture",
-      "issuer": "NPTEL / SWAYAM",
-      "date": "2024",
-      "credentialId": "NPTEL24CS88",
-      "link": "https://github.com/SNK9728",
-      "tags": ["Embedded Systems", "C++", "Microcontrollers", "ARM Cortex"]
+      "title": "Hackathon Champions — Success Journey Program",
+      "type": "Certificate of Participation",
+      "issuer": "SIMATS Engineering Hackathon Club",
+      "date": "08 Nov 2025",
+      "credentialId": "SIMATS-HACK-2025",
+      "image": "images/cert-hackathon.jpg",
+      "fullDesc": "Participated in the Hackathon Champions – Success Journey Program organized by the SIMATS Engineering Hackathon Club. The program provided an opportunity to engage in a hackathon environment, explore innovative problem-solving, and gain experience in collaborative technical activities.",
+      "tags": ["Hackathon", "Problem Solving", "Innovation", "Teamwork", "Technical Skills"]
     },
     {
       "id": "cert-2",

@@ -5,6 +5,73 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ── 0. BACKEND DATA AUTO-SYNC (CGPA, Year, Institution) ── */
+  async function syncBackendContent() {
+    try {
+      const res = await fetch('/api/db');
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.portfolio) {
+          const p = data.portfolio;
+          
+          // Hero status bar CGPA
+          const heroCgpa = document.getElementById('hero-cgpa-badge');
+          if (heroCgpa && p.cgpa) {
+            heroCgpa.textContent = p.cgpa.startsWith('CGPA') ? p.cgpa : `CGPA ${p.cgpa.replace(' / 10', '')}`;
+          }
+
+          // Hero status bar Year
+          const heroYear = document.getElementById('hero-year-badge');
+          if (heroYear && p.year) {
+            heroYear.textContent = p.year.includes('—') ? p.year : `2022 — ${p.year}`;
+          }
+
+          // Education Section CGPA
+          const eduCgpa = document.getElementById('edu-cgpa-value');
+          if (eduCgpa && p.cgpa) {
+            eduCgpa.textContent = p.cgpa.includes('/ 10') ? p.cgpa : `${p.cgpa} / 10`;
+          }
+
+          // Education Section Institution
+          const eduInst = document.getElementById('edu-institution');
+          if (eduInst && p.institution) {
+            const valEl = eduInst.querySelector('.edu-meta-value');
+            if (valEl) valEl.textContent = p.institution;
+          }
+
+          // Modal CGPA Badge
+          const modalCgpaBadge = document.getElementById('modal-cgpa-badge');
+          if (modalCgpaBadge && p.cgpa) {
+            modalCgpaBadge.textContent = `CGPA: ${p.cgpa.includes('/ 10') ? p.cgpa : p.cgpa + ' / 10'}`;
+          }
+
+          // Modal CGPA Grid Value
+          const modalCgpaVal = document.getElementById('modal-cgpa-val');
+          if (modalCgpaVal && p.cgpa) {
+            const cleanCgpa = p.cgpa.replace(' / 10', '');
+            modalCgpaVal.textContent = `${cleanCgpa} CGPA (Out of 10.0)`;
+          }
+
+          // Modal Institution Value
+          const modalInstVal = document.getElementById('modal-institution-val');
+          if (modalInstVal && p.institution) {
+            modalInstVal.textContent = p.institution;
+          }
+
+          // Modal Year Badge
+          const modalYearBadge = document.getElementById('modal-year-badge');
+          if (modalYearBadge && p.year) {
+            modalYearBadge.textContent = `Graduation: ${p.year}`;
+          }
+        }
+      }
+    } catch (err) {
+      console.log('Backend sync offline');
+    }
+  }
+
+  syncBackendContent();
+
   /* ── ELEMENT REFERENCES ─────────────────────────────────── */
   const navbar      = document.getElementById('navbar');
   const hamburger   = document.getElementById('hamburger');
@@ -148,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
 
 
-  /* ── 8. PROJECT CARD HOVER TILT ──────────────────────────── */
+  /* ── 8. PROJECT CARD HOVER EFFECT ────────────────────────── */
   const isTouchDevice = window.matchMedia('(hover: none)').matches;
   if (!isTouchDevice) {
     document.querySelectorAll('.project-card').forEach((card) => {
@@ -158,9 +225,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const y      = e.clientY - rect.top;
         const cx     = rect.width  / 2;
         const cy     = rect.height / 2;
-        const rotX   = ((y - cy) / cy) * -3;
-        const rotY   = ((x - cx) / cx) *  3;
-        card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        const rotX   = ((y - cy) / cy) * -2;
+        const rotY   = ((x - cx) / cx) *  2;
+        card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px)`;
       });
 
       card.addEventListener('mouseleave', () => {
@@ -850,6 +917,80 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && lightboxModal.classList.contains('open')) closeLightbox();
+    });
+  }
+
+
+  /* ── 18. PERSONAL DETAILS PHOTO CLICK MODAL HANDLER ──────── */
+  const profileModal = document.getElementById('profile-details-modal');
+  const profileCloseBtn = document.getElementById('profile-modal-close');
+  const profileCloseBtnFooter = document.getElementById('profile-modal-close-btn');
+  const profileAvatars = document.querySelectorAll('.hero-profile-avatar, .nav-logo-avatar');
+
+  if (profileModal) {
+    const openProfileModal = (e) => {
+      e.preventDefault();
+      profileModal.classList.add('open');
+      profileModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeProfileModal = () => {
+      profileModal.classList.remove('open');
+      profileModal.setAttribute('aria-hidden', 'true');
+    };
+
+    profileAvatars.forEach(avatar => {
+      avatar.addEventListener('click', openProfileModal);
+    });
+
+    if (profileCloseBtn) profileCloseBtn.addEventListener('click', closeProfileModal);
+    if (profileCloseBtnFooter) profileCloseBtnFooter.addEventListener('click', closeProfileModal);
+
+    profileModal.addEventListener('click', (e) => {
+      if (e.target === profileModal) closeProfileModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && profileModal.classList.contains('open')) {
+        closeProfileModal();
+      }
+    });
+  }
+
+
+  /* ── 19. CERTIFICATE DETAILS MODAL HANDLER ─────────────── */
+  const certModal = document.getElementById('cert-details-modal');
+  const certCloseBtn = document.getElementById('cert-modal-close');
+  const certCloseBtnFooter = document.getElementById('cert-modal-close-btn');
+  const certTriggers = document.querySelectorAll('.cert-card-clickable, .cert-btn');
+
+  if (certModal) {
+    const openCertModal = (e) => {
+      e.preventDefault();
+      certModal.classList.add('open');
+      certModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeCertModal = () => {
+      certModal.classList.remove('open');
+      certModal.setAttribute('aria-hidden', 'true');
+    };
+
+    certTriggers.forEach(trigger => {
+      trigger.addEventListener('click', openCertModal);
+    });
+
+    if (certCloseBtn) certCloseBtn.addEventListener('click', closeCertModal);
+    if (certCloseBtnFooter) certCloseBtnFooter.addEventListener('click', closeCertModal);
+
+    certModal.addEventListener('click', (e) => {
+      if (e.target === certModal) closeCertModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && certModal.classList.contains('open')) {
+        closeCertModal();
+      }
     });
   }
 

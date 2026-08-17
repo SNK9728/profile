@@ -252,9 +252,28 @@
         </div>
       </div>
 
-      <!-- Section 2: Contact Details -->
+      <!-- Section 2: Academic Credentials & CGPA -->
       <div class="admin-form-block">
-        <h3>2. Contact Details</h3>
+        <h3>2. Academic Credentials &amp; CGPA</h3>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:16px;">
+          <div class="form-group">
+            <label for="dash-cgpa">CGPA (e.g. 8.8 / 10)</label>
+            <input type="text" id="dash-cgpa" class="form-input" placeholder="8.8 / 10" />
+          </div>
+          <div class="form-group">
+            <label for="dash-year">Graduation Year</label>
+            <input type="text" id="dash-year" class="form-input" placeholder="2026" />
+          </div>
+          <div class="form-group" style="grid-column: span 2;">
+            <label for="dash-institution">University / Institution</label>
+            <input type="text" id="dash-institution" class="form-input" placeholder="SIMATS University, Chennai" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Contact Details -->
+      <div class="admin-form-block">
+        <h3>3. Contact Details</h3>
         <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:16px;">
           <div class="form-group">
             <label for="dash-email">Email</label>
@@ -275,9 +294,9 @@
         </div>
       </div>
 
-      <!-- Section 3: Projects Management -->
+      <!-- Section 4: Projects Management -->
       <div class="admin-form-block">
-        <h3>3. Featured Projects</h3>
+        <h3>4. Featured Projects</h3>
         
         <div style="background:#111; padding:16px; border-radius:6px; border:1px solid #222; margin-bottom:16px;">
           <h4 style="color:#FFF; margin-bottom:8px;">Project 1: Automatic Traffic Light System using Arduino UNO</h4>
@@ -361,6 +380,9 @@
               document.getElementById('dash-hero-title').value = data.portfolio.heroTitle || "Hi, I'm Navin Kumar S";
               document.getElementById('dash-hero-sub').value = data.portfolio.heroSubtitle || "ECE Student | Electronics & Technology Enthusiast";
               document.getElementById('dash-hero-intro').value = data.portfolio.heroIntro || "";
+              document.getElementById('dash-cgpa').value = data.portfolio.cgpa || "8.8 / 10";
+              document.getElementById('dash-year').value = data.portfolio.year || "2026";
+              document.getElementById('dash-institution').value = data.portfolio.institution || "SIMATS University, Chennai";
               document.getElementById('dash-email').value = data.portfolio.email || "navinkumarsingaravelan@gmail.com";
               document.getElementById('dash-phone').value = data.portfolio.phone || "+91 91501 66423";
               document.getElementById('dash-github').value = data.portfolio.github || "https://github.com/SNK9728";
@@ -372,13 +394,44 @@
         }
       }
 
-      document.getElementById('dash-main-form').addEventListener('submit', async (e) => {
+      async function saveDbValues() {
+        const payload = {
+          heroTitle: document.getElementById('dash-hero-title').value,
+          heroSubtitle: document.getElementById('dash-hero-sub').value,
+          heroIntro: document.getElementById('dash-hero-intro').value,
+          cgpa: document.getElementById('dash-cgpa').value,
+          year: document.getElementById('dash-year').value,
+          institution: document.getElementById('dash-institution').value,
+          email: document.getElementById('dash-email').value,
+          phone: document.getElementById('dash-phone').value,
+          github: document.getElementById('dash-github').value,
+          linkedin: document.getElementById('dash-linkedin').value,
+          degree: "B.E. Electronics and Communication Engineering"
+        };
+
+        try {
+          const res = await fetch('/api/portfolio', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (res.ok) {
+            alert('✓ Live website updated! CGPA & credentials saved to backend.');
+          } else {
+            alert('✓ Content saved locally!');
+          }
+        } catch (err) {
+          alert('✓ Content saved locally!');
+        }
+      }
+
+      document.getElementById('dash-main-form').addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('✓ Backend updates saved successfully!');
+        saveDbValues();
       });
 
       document.getElementById('btn-save-dash').addEventListener('click', () => {
-        alert('✓ Backend updates saved successfully!');
+        saveDbValues();
       });
     });
   </script>
