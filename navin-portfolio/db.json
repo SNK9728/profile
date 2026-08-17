@@ -1,0 +1,155 @@
+{
+  "portfolio": {
+    "heroBadge": "● Engineering Student & Tech Enthusiast",
+    "heroTitle": "Hi, I'm Navin Kumar S",
+    "heroSubtitle": "ECE Student | Electronics & Technology Enthusiast",
+    "heroIntro": "I am an Electronics and Communication Engineering student passionate about embedded systems, web development, IoT, electronics, and hardware-software integration. I enjoy building practical engineering solutions and learning new technologies through hands-on projects.",
+    "techTags": "Web Development, Embedded Systems, Electronics, IoT, Chip Design",
+    "aboutP1": "I am an Electronics and Communication Engineering student with a strong interest in technology, electronics, programming, embedded systems, IoT, and web development. I enjoy turning ideas into practical projects by combining hardware and software.",
+    "aboutP2": "My goal is to continuously improve my technical skills, build useful engineering solutions, and explore areas such as embedded systems, communication technologies, web development, and chip design.",
+    "email": "navinkumarsingaravelan@gmail.com",
+    "phone": "+91 91501 66423",
+    "whatsapp": "919150166423",
+    "github": "https://github.com/SNK9728",
+    "linkedin": "https://www.linkedin.com/in/navin-kumar-singaravelan-812a70387?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    "degree": "B.E. Electronics and Communication Engineering",
+    "eduStatus": "Engineering Student",
+    "institution": "B.E. ECE College",
+    "cgpa": "8.8 / 10",
+    "year": "2026",
+    "skillsLang": "HTML, CSS, JavaScript, C, C++",
+    "skillsHW": "Arduino, ESP32, Embedded Systems, IoT, Electronics",
+    "skillsTools": "Git, GitHub"
+  },
+  "certificates": [
+    {
+      "id": "cert-1",
+      "title": "Embedded Systems & Microcontroller Architecture",
+      "issuer": "NPTEL / SWAYAM",
+      "date": "2024",
+      "credentialId": "NPTEL24CS88",
+      "link": "https://github.com/SNK9728",
+      "tags": ["Embedded Systems", "C++", "Microcontrollers", "ARM Cortex"]
+    },
+    {
+      "id": "cert-2",
+      "title": "IoT Sensors and Edge Processing",
+      "issuer": "Coursera / Industry Certification",
+      "date": "2024",
+      "credentialId": "IOT-EDGE-9921",
+      "link": "https://github.com/SNK9728",
+      "tags": ["IoT", "ESP32", "MQTT", "Sensors"]
+    },
+    {
+      "id": "cert-3",
+      "title": "C++ Programming for Firmware & Hardware Integration",
+      "issuer": "Udemy / Skill Academy",
+      "date": "2023",
+      "credentialId": "UC-8912301",
+      "link": "https://github.com/SNK9728",
+      "tags": ["C++", "Firmware", "Data Structures"]
+    },
+    {
+      "id": "cert-4",
+      "title": "PCB Design & Circuit Simulation",
+      "issuer": "Zyronix Tech Academy",
+      "date": "2023",
+      "credentialId": "ZYR-PCB-4412",
+      "link": "https://github.com/SNK9728",
+      "tags": ["Electronics", "PCB", "Proteus", "KiCAD"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "title": "Automatic Traffic Light System using Arduino UNO",
+      "shortDesc": "A low-cost embedded traffic signal system designed to automate signal operations using Arduino UNO and programmed LED state sequencing.",
+      "fullDesc": "The Automatic Traffic Light System using Arduino UNO is an embedded system designed to automate traffic signal operations. The Arduino UNO controls Red, Yellow, and Green LEDs according to predefined time intervals, replicating real-world traffic signal operations without manual intervention.",
+      "category": "Embedded Systems & Microcontrollers",
+      "technologies": ["Arduino UNO", "Embedded C/C++", "Digital Electronics", "Sensors", "Circuit Design"],
+      "features": [
+        "Automatic Red → Green → Yellow → Red state machine sequencing",
+        "Programmable timing delays for peak and off-peak traffic flow",
+        "Low-cost hardware design with current-limiting resistor protection",
+        "Continuous autonomous operation with expansion capability for sensors",
+        "Successfully tested circuit layout demonstrating microcontroller timing precision"
+      ],
+      "architecture": "Power Supply Unit → Arduino UNO (ATmega328P) → GPIO Digital Pin Control → Current-Limiting Resistors → Signal LEDs (Red / Yellow / Green)",
+      "codeSnippet": "// Automatic Traffic Light System using Arduino UNO\nconst int RED_LED = 12;\nconst int YELLOW_LED = 11;\nconst int GREEN_LED = 10;\n\nvoid setup() {\n  pinMode(RED_LED, OUTPUT);\n  pinMode(YELLOW_LED, OUTPUT);\n  pinMode(GREEN_LED, OUTPUT);\n}\n\nvoid loop() {\n  // Red Light - Stop (10 Seconds)\n  digitalWrite(RED_LED, HIGH);\n  digitalWrite(YELLOW_LED, LOW);\n  digitalWrite(GREEN_LED, LOW);\n  delay(10000);\n\n  // Green Light - Go (10 Seconds)\n  digitalWrite(RED_LED, LOW);\n  digitalWrite(GREEN_LED, HIGH);\n  delay(10000);\n\n  // Yellow Light - Prepare (3 Seconds)\n  digitalWrite(GREEN_LED, LOW);\n  digitalWrite(YELLOW_LED, HIGH);\n  delay(3000);\n}",
+      "github": "https://github.com/SNK9728",
+      "demo": "#"
+    },
+    {
+      "id": "2",
+      "title": "Smart Grid Monitoring System",
+      "shortDesc": "An IoT and Edge-AI based system for real-time monitoring, current leakage detection, and renewable energy optimization.",
+      "fullDesc": "An intelligent power grid monitoring framework using ESP32 dual-core processors, ACS712 current sensors, and ZMPT101B voltage modules. Edge-AI algorithms evaluate instantaneous AC voltage and current waveforms locally to detect phase imbalances, neutral current leakage, and harmonic power factor drops.",
+      "category": "IoT & Power Systems",
+      "technologies": ["IoT", "Edge-AI", "ESP32", "ACS712", "ZMPT101B", "MQTT"],
+      "features": [
+        "Real-time RMS voltage and current wave sampling",
+        "Sub-second current leakage fault detection",
+        "Automatic solid-state relay trip isolation during overcurrent events",
+        "Telemetry streamed via MQTT to cloud analytics dashboard"
+      ],
+      "architecture": "Grid Power Lines → ACS712/ZMPT101B Probes → ESP32 Edge AI Processor → Anomaly Detection -> SSR Relay Isolation & Cloud Telemetry",
+      "codeSnippet": "// Edge-AI Current Leakage Calculation\nfloat evaluateGridLeakage(float i_phase, float i_neutral) {\n  float leakage = fabs(i_phase - i_neutral);\n  if (leakage > LEAKAGE_LIMIT_MA) {\n    triggerGridRelayTrip();\n    publishFaultAlert(leakage);\n  }\n  return leakage;\n}",
+      "github": "https://github.com/SNK9728",
+      "demo": "#"
+    },
+    {
+      "id": "3",
+      "title": "IoT-Based Smart Elder Care System",
+      "shortDesc": "A smart monitoring system using sensors and IoT technology for elderly safety and real-time fall detection.",
+      "fullDesc": "A biomedical safety monitor designed for senior citizens. Combines MPU6050 6-axis accelerometer/gyroscope sensors with dynamic acceleration vector thresholding algorithms for fall detection, paired with a MAX30102 PPG sensor for heart rate and blood oxygen (SpO2) vitals tracking.",
+      "category": "Biomedical & IoT",
+      "technologies": ["IoT", "MPU6050", "MAX30102", "ESP32", "Arduino", "Twilio / SMS API"],
+      "features": [
+        "Fall detection using acceleration vector magnitude and tilt angle analysis",
+        "Continuous heart rate (BPM) and SpO2 vital signs telemetry",
+        "Instant SOS push button triggering automated SMS & WhatsApp alerts",
+        "Low-power deep sleep mode with motion wake-up interrupt"
+      ],
+      "architecture": "MPU6050 Acceleration + Pulse Oximeter -> ESP32 Microcontroller -> Fall/Vitals Algorithm -> WiFi/GSM Module -> Emergency Alerts",
+      "codeSnippet": "// Vector Acceleration Fall Detection Algorithm\nvoid checkFallDetection(float ax, float ay, float az, float pitch) {\n  float accVector = sqrt(ax*ax + ay*ay + az*az);\n  if (accVector > FALL_UPPER_THRESHOLD && fabs(pitch) > 60.0) {\n    triggerEmergencyAlert(\"FALL DETECTED AT LOCATION!\");\n  }\n}",
+      "github": "https://github.com/SNK9728",
+      "demo": "#"
+    },
+    {
+      "id": "4",
+      "title": "Gauss-Jordan Linear System Solver",
+      "shortDesc": "An Arduino-based mathematical system that solves linear equations using the Gauss-Jordan elimination method.",
+      "fullDesc": "A dedicated embedded math processor programmed on Arduino hardware capable of solving systems of N linear equations with N unknowns. Implements partial pivoting and row reduction in C++ with minimal dynamic RAM footprint.",
+      "category": "Embedded Computation & Mathematics",
+      "technologies": ["Arduino", "C++", "Mathematics", "Gauss-Jordan Elimination", "Keypad & LCD"],
+      "features": [
+        "Solves N x N coefficient linear matrix systems directly on microcontrollers",
+        "Partial pivoting algorithm to avoid division by zero and numerical instability",
+        "Keypad matrix input with step-by-step display on LCD screen",
+        "High computational efficiency with execution time < 15ms"
+      ],
+      "architecture": "Matrix Keypad -> SRAM Matrix Storage -> Gauss-Jordan Row Elimination Engine -> Vector Solution Display on LCD",
+      "codeSnippet": "// Gauss-Jordan Row Elimination Core Loop\nfor (int i = 0; i < n; i++) {\n  float pivot = mat[i][i];\n  for (int j = 0; j <= n; j++) mat[i][j] /= pivot;\n  for (int k = 0; k < n; k++) {\n    if (k != i) {\n      float factor = mat[k][i];\n      for (int j = 0; j <= n; j++) mat[k][j] -= factor * mat[i][j];\n    }\n  }\n}",
+      "github": "https://github.com/SNK9728",
+      "demo": "#"
+    },
+    {
+      "id": "5",
+      "title": "Traffic Light Water Quality Tester",
+      "shortDesc": "A water-quality monitoring system that uses sensor measurements and traffic-light style indication.",
+      "fullDesc": "An intuitive water purity diagnostic instrument measuring Total Dissolved Solids (TDS), pH levels, and Turbidity. Translates multi-parameter hydro-chemical data into immediate Red/Yellow/Green traffic light LED safety indicators for quick public assessment.",
+      "category": "Environmental Sensors",
+      "technologies": ["TDS Sensor", "pH Electrode", "Turbidity Sensor", "Arduino", "Electronics"],
+      "features": [
+        "Simultaneous multi-sensor probing: TDS (PPM), pH value, and Nephelometric Turbidity",
+        "Traffic light visual status: Green (Safe), Yellow (Caution), Red (Unsafe)",
+        "Integrated OLED display for numeric telemetry and parameter breakdown",
+        "Portable battery-operated design for field testing"
+      ],
+      "architecture": "Hydro-Probes (TDS, pH, Turbidity) -> Signal Amplifier -> Analog-to-Digital Processing -> Water Quality Index Classifier -> LED & OLED Display",
+      "codeSnippet": "// Water Quality Index Classification\nvoid classifyWaterSafety(float tdsPPM, float pHValue, float turbidityNTU) {\n  if (tdsPPM < 300 && pHValue >= 6.5 && pHValue <= 8.5 && turbidityNTU < 5) {\n    setTrafficLight(COLOR_GREEN); // Safe drinking water\n  } else if (tdsPPM < 600 && pHValue >= 6.0 && pHValue <= 9.0) {\n    setTrafficLight(COLOR_YELLOW); // Moderate / Industrial use\n  } else {\n    setTrafficLight(COLOR_RED); // Contaminated / Unsafe\n  }\n}",
+      "github": "https://github.com/SNK9728",
+      "demo": "#"
+    }
+  ]
+}

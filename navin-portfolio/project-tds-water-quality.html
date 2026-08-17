@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TDS-Based Water Quality Tester — Arduino UNO embedded system project showcase by Navin Kumar S." />
+  <meta name="keywords" content="Arduino UNO, TDS Sensor, Water Quality, Embedded Systems, C/C++, Sensors, Navin Kumar S" />
+  <meta name="author" content="Navin Kumar S" />
+  <meta property="og:title" content="TDS-Based Water Quality Tester | Navin Kumar S" />
+  <meta property="og:description" content="A compact Arduino-based water quality testing system that measures Total Dissolved Solids (TDS) in water." />
+  <title>TDS-Based Water Quality Tester | Navin Kumar S</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="project-details-page">
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+
+      <!-- Logo / Brand -->
+      <a href="index.html#home" class="nav-brand" id="nav-logo">
+        <span class="brand-name">Navin Kumar S</span>
+        <span class="brand-sep">/</span>
+        <span class="brand-role">ECE</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="index.html#home" class="nav-link" id="nav-home">Home</a>
+        <a href="index.html#about" class="nav-link" id="nav-about">About</a>
+        <a href="index.html#skills" class="nav-link" id="nav-skills">Skills</a>
+        <a href="index.html#projects" class="nav-link active" id="nav-projects">Projects</a>
+        <a href="index.html#certificates" class="nav-link" id="nav-certificates">Certificates</a>
+        <a href="index.html#education" class="nav-link" id="nav-education">Education</a>
+        <a href="index.html#activities" class="nav-link" id="nav-activities">Activities</a>
+        <a href="index.html#contact" class="nav-link" id="nav-contact">Contact</a>
+      </nav>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+      </button>
+
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="index.html#home" class="mobile-link">Home</a>
+      <a href="index.html#about" class="mobile-link">About</a>
+      <a href="index.html#skills" class="mobile-link">Skills</a>
+      <a href="index.html#projects" class="mobile-link active">Projects</a>
+      <a href="index.html#certificates" class="mobile-link">Certificates</a>
+      <a href="index.html#education" class="mobile-link">Education</a>
+      <a href="index.html#activities" class="mobile-link">Activities</a>
+      <a href="index.html#contact" class="mobile-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       PROJECT DETAILS MAIN CONTAINER
+  ============================================================ -->
+  <main class="project-details-main">
+    <div class="container">
+
+      <!-- Breadcrumb Navigation -->
+      <nav class="project-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html#projects" class="back-link" id="back-to-projects-top">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Projects
+        </a>
+      </nav>
+
+      <!-- PROJECT HEADER -->
+      <header class="project-header-section">
+        <div class="project-badge-pill">Water Quality Monitoring Project</div>
+        <h1 class="project-main-title">TDS-Based Water Quality Tester</h1>
+        <p class="project-meta-line">Arduino UNO | TDS Sensor | Embedded Systems</p>
+      </header>
+
+      <!-- HERO PROJECT IMAGE -->
+      <section class="project-hero-image-section">
+        <div class="project-image-container">
+          <!-- Replace tds-water-quality.jpg with your actual project photograph -->
+          <img 
+            src="images/tds-water-quality.jpg" 
+            alt="TDS-Based Water Quality Tester" 
+            class="project-hero-img gallery-lightbox-trigger" 
+            id="main-project-img"
+            data-fullsrc="images/tds-water-quality.jpg"
+            data-caption="TDS-Based Water Quality Tester — Main Hardware Setup"
+            onerror="this.onerror=null; this.classList.add('img-hidden'); document.getElementById('hero-img-fallback').classList.remove('hidden');"
+          />
+          <div class="project-img-fallback hidden" id="hero-img-fallback">
+            <div class="fallback-icon">🧪</div>
+            <div class="fallback-title">Project Image</div>
+            <div class="fallback-sub">TDS-Based Water Quality Tester</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECT OVERVIEW -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Project Overview</h2>
+        <div class="detail-text-content">
+          <p>
+            The TDS-Based Water Quality Tester is an Arduino-based embedded system designed to measure the Total Dissolved Solids (TDS) level in water. The system uses a TDS sensor to obtain a measurement from a water sample and provides the result to the user through a display or serial monitor.
+          </p>
+          <p>
+            The project demonstrates sensor interfacing, analog data acquisition, microcontroller processing, and basic water-quality monitoring.
+          </p>
+        </div>
+      </section>
+
+      <!-- OBJECTIVE -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Objective</h2>
+        <div class="detail-text-content">
+          <p>
+            To design and develop a simple, low-cost water quality testing system using Arduino UNO and a TDS sensor to measure the dissolved-solids level of water and present the measured value in an easy-to-understand format.
+          </p>
+        </div>
+      </section>
+
+      <!-- COMPONENTS USED -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Components Used</h2>
+        <div class="components-grid">
+          
+          <div class="component-card">
+            <div class="component-icon">⚡</div>
+            <div class="component-name">Arduino UNO</div>
+            <div class="component-desc">ATmega328P Microcontroller Board</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon">🧪</div>
+            <div class="component-name">TDS Sensor Module</div>
+            <div class="component-desc">Analog Water TDS Signal Conditioning Board</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon">🔌</div>
+            <div class="component-name">TDS Probe</div>
+            <div class="component-desc">Waterproof Conductive Metal Electrodes</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon">🌡️</div>
+            <div class="component-name">Temperature Sensor</div>
+            <div class="component-desc">DS18B20 / Thermistor (Optional Compensation)</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon">📟</div>
+            <div class="component-name">16×2 LCD / Display</div>
+            <div class="component-desc">I2C Character Display Module</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon">🟫</div>
+            <div class="component-name">Breadboard</div>
+            <div class="component-desc">Solderless Prototyping Board</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon">🔀</div>
+            <div class="component-name">Jumper Wires</div>
+            <div class="component-desc">Connecting Wires (Male/Female)</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon">⚡</div>
+            <div class="component-name">Resistors</div>
+            <div class="component-desc">Passive Calibration / Pull-up Resistors</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon">🔋</div>
+            <div class="component-name">USB Cable / Power Supply</div>
+            <div class="component-desc">5V DC Power Source / USB Programming</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- WORKING PRINCIPLE -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">How It Works</h2>
+        <div class="detail-text-content mb-4">
+          <p>
+            The TDS sensor detects the electrical characteristics of the water sample. Arduino UNO reads the sensor signal and processes the measurement to obtain a TDS value, generally expressed in ppm. The resulting value is displayed to the user.
+          </p>
+        </div>
+
+        <!-- Visual Flow Diagram -->
+        <div class="working-flow-container">
+          
+          <div class="flow-step">
+            <div class="flow-node flow-node-square">💧</div>
+            <div class="flow-card">
+              <h3 class="flow-title">Water Sample</h3>
+              <p class="flow-desc">Liquid sample introduced to testing probe.</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="flow-node flow-node-square">🧪</div>
+            <div class="flow-card">
+              <h3 class="flow-title">TDS Probe / Sensor</h3>
+              <p class="flow-desc">Submerged probe senses ionic concentration.</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="flow-node flow-node-square">⚡</div>
+            <div class="flow-card">
+              <h3 class="flow-title">Electrical Conductivity Measurement</h3>
+              <p class="flow-desc">Analog voltage generated proportional to EC.</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="flow-node flow-node-square">💻</div>
+            <div class="flow-card">
+              <h3 class="flow-title">Arduino UNO</h3>
+              <p class="flow-desc">ADC pin samples raw analog voltage signal.</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="flow-node flow-node-square">⚙️</div>
+            <div class="flow-card">
+              <h3 class="flow-title">Signal Processing</h3>
+              <p class="flow-desc">Voltage filtering &amp; optional temperature compensation.</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="flow-node flow-node-square">📐</div>
+            <div class="flow-card">
+              <h3 class="flow-title">TDS Value Calculation</h3>
+              <p class="flow-desc">Mathematical conversion formula calculates PPM value.</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="flow-node flow-node-square">📟</div>
+            <div class="flow-card">
+              <h3 class="flow-title">Display / Serial Monitor</h3>
+              <p class="flow-desc">Output rendered on 16x2 LCD or serial terminal.</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="flow-node flow-node-square">👤</div>
+            <div class="flow-card">
+              <h3 class="flow-title">User Reads TDS Value</h3>
+              <p class="flow-desc">Instant numeric PPM reading obtained by user.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SYSTEM MODULES -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">System Modules</h2>
+        <div class="modules-grid">
+          
+          <div class="module-card">
+            <div class="module-num">01</div>
+            <h3 class="module-title">Sensing Module</h3>
+            <p class="module-desc">The TDS sensor obtains the measurement from the water sample.</p>
+          </div>
+
+          <div class="module-card">
+            <div class="module-num">02</div>
+            <h3 class="module-title">Processing Module</h3>
+            <p class="module-desc">Arduino UNO reads and processes the sensor signal.</p>
+          </div>
+
+          <div class="module-card">
+            <div class="module-num">03</div>
+            <h3 class="module-title">Calculation Module</h3>
+            <p class="module-desc">The system converts the sensor measurement into a TDS value.</p>
+          </div>
+
+          <div class="module-card">
+            <div class="module-num">04</div>
+            <h3 class="module-title">Display Module</h3>
+            <p class="module-desc">The measured TDS value is displayed to the user.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- WHAT IS TDS? -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">What is TDS?</h2>
+        <div class="detail-text-content mb-4">
+          <p>
+            TDS (Total Dissolved Solids) represents the approximate concentration of dissolved substances in water. It is commonly expressed in parts per million (ppm). A TDS measurement can be useful as one indicator of water quality, but it does not by itself determine whether water is safe to drink.
+          </p>
+        </div>
+
+        <!-- Clean Visual -->
+        <div class="tds-visual-box">
+          <div class="visual-node">Water Sample</div>
+          <div class="visual-arrow">→</div>
+          <div class="visual-node">TDS Measurement</div>
+          <div class="visual-arrow">→</div>
+          <div class="visual-node node-highlight">ppm Reading</div>
+        </div>
+
+        <div class="disclaimer-callout">
+          <span class="disclaimer-icon">⚠️</span>
+          <span><strong>Note:</strong> TDS measurement indicates dissolved solids concentration and serves as a general parameter, but does not certify drinking water safety or detect specific pathogens/chemical contaminants.</span>
+        </div>
+      </section>
+
+      <!-- EXPERIMENTAL RANGE -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Experimental Reference Range</h2>
+        <div class="table-container">
+          <table class="ref-table">
+            <thead>
+              <tr>
+                <th>TDS Range</th>
+                <th>General Indication</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>0–50 ppm</code></td>
+                <td>Very low dissolved solids</td>
+              </tr>
+              <tr>
+                <td><code>50–150 ppm</code></td>
+                <td>Low dissolved solids</td>
+              </tr>
+              <tr>
+                <td><code>150–300 ppm</code></td>
+                <td>Moderate dissolved solids</td>
+              </tr>
+              <tr>
+                <td><code>300–500 ppm</code></td>
+                <td>Higher dissolved solids</td>
+              </tr>
+              <tr>
+                <td><code>Above 500 ppm</code></td>
+                <td>High dissolved solids</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-disclaimer-note">
+          * General reference ranges — not a safety certification. Interpretation depends on application, water source, calibration, and testing standards.
+        </p>
+      </section>
+
+      <!-- TECHNOLOGIES USED -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Technologies Used</h2>
+        <div class="tech-tags-list">
+          <span class="detail-tag">Arduino UNO</span>
+          <span class="detail-tag">TDS Sensor</span>
+          <span class="detail-tag">Embedded C/C++</span>
+          <span class="detail-tag">Analog Sensor Interface</span>
+          <span class="detail-tag">Data Acquisition</span>
+          <span class="detail-tag">Water Quality Monitoring</span>
+        </div>
+      </section>
+
+      <!-- KEY FEATURES -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Key Features</h2>
+        <ul class="features-list">
+          <li class="feature-item">
+            <span class="feature-bullet">◆</span>
+            <span class="feature-text"><strong>Real-time TDS measurement:</strong> Instant sampling of dissolved solids concentration in PPM.</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-bullet">◆</span>
+            <span class="feature-text"><strong>Arduino-based processing:</strong> Microcontroller-based signal acquisition and voltage conversion.</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-bullet">◆</span>
+            <span class="feature-text"><strong>Simple sensor interface:</strong> Analog pin connection for easy hardware integration.</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-bullet">◆</span>
+            <span class="feature-text"><strong>Low-cost prototype:</strong> Built with accessible off-the-shelf electronic modules.</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-bullet">◆</span>
+            <span class="feature-text"><strong>Easy-to-read output:</strong> Numerical PPM readouts presented on display / serial monitor.</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-bullet">◆</span>
+            <span class="feature-text"><strong>Portable testing concept:</strong> Compact design suitable for mobile field testing.</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-bullet">◆</span>
+            <span class="feature-text"><strong>Useful for educational monitoring:</strong> Ideal for academic labs, environmental studies, and IoT projects.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- HARDWARE IMPLEMENTATION & GALLERY -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Hardware Implementation</h2>
+        <div class="gallery-grid">
+          
+          <div class="gallery-card">
+            <!-- Replace tds-water-quality.jpg with your actual main setup photo -->
+            <img 
+              src="images/tds-water-quality.jpg" 
+              alt="Main Hardware Setup" 
+              class="gallery-img gallery-lightbox-trigger"
+              data-fullsrc="images/tds-water-quality.jpg"
+              data-caption="Main Project Overview Setup"
+              onerror="this.onerror=null; this.classList.add('img-hidden'); this.nextElementSibling.classList.remove('hidden');"
+            />
+            <div class="circuit-img-fallback hidden">
+              <div class="fallback-icon">🧪</div>
+              <div class="fallback-title">Main Setup Photo</div>
+              <div class="fallback-sub">tds-water-quality.jpg</div>
+            </div>
+            <div class="gallery-caption">Main Project Setup</div>
+          </div>
+
+          <div class="gallery-card">
+            <!-- Replace tds-circuit.jpg with your actual circuit diagram photo -->
+            <img 
+              src="images/tds-circuit.jpg" 
+              alt="Circuit Diagram &amp; Wiring" 
+              class="gallery-img gallery-lightbox-trigger"
+              data-fullsrc="images/tds-circuit.jpg"
+              data-caption="Circuit Schematics &amp; Wiring Connections"
+              onerror="this.onerror=null; this.classList.add('img-hidden'); this.nextElementSibling.classList.remove('hidden');"
+            />
+            <div class="circuit-img-fallback hidden">
+              <div class="fallback-icon">⚡</div>
+              <div class="fallback-title">Circuit Diagram Photo</div>
+              <div class="fallback-sub">tds-circuit.jpg</div>
+            </div>
+            <div class="gallery-caption">Circuit Diagram &amp; Schematics</div>
+          </div>
+
+          <div class="gallery-card">
+            <!-- Replace tds-testing.jpg with your actual testing photo -->
+            <img 
+              src="images/tds-testing.jpg" 
+              alt="Water Sample Testing Setup" 
+              class="gallery-img gallery-lightbox-trigger"
+              data-fullsrc="images/tds-testing.jpg"
+              data-caption="Water Sample Testing in Progress"
+              onerror="this.onerror=null; this.classList.add('img-hidden'); this.nextElementSibling.classList.remove('hidden');"
+            />
+            <div class="circuit-img-fallback hidden">
+              <div class="fallback-icon">🔬</div>
+              <div class="fallback-title">Testing Photo</div>
+              <div class="fallback-sub">tds-testing.jpg</div>
+            </div>
+            <div class="gallery-caption">Water Sample Testing Setup</div>
+          </div>
+
+          <div class="gallery-card">
+            <!-- Replace tds-output.jpg with your actual output display photo -->
+            <img 
+              src="images/tds-output.jpg" 
+              alt="Display &amp; Output Reading" 
+              class="gallery-img gallery-lightbox-trigger"
+              data-fullsrc="images/tds-output.jpg"
+              data-caption="Live Display Output Reading"
+              onerror="this.onerror=null; this.classList.add('img-hidden'); this.nextElementSibling.classList.remove('hidden');"
+            />
+            <div class="circuit-img-fallback hidden">
+              <div class="fallback-icon">📟</div>
+              <div class="fallback-title">Output Photo</div>
+              <div class="fallback-sub">tds-output.jpg</div>
+            </div>
+            <div class="gallery-caption">Display &amp; Serial Monitor Output</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CODE SECTION -->
+      <section class="project-detail-block">
+        <div class="code-section-header">
+          <div>
+            <h2 class="detail-section-title" style="margin-bottom:4px;">Arduino Code</h2>
+            <p class="code-sub-label">Sample implementation — update according to the actual sensor and calibration used.</p>
+          </div>
+          <button class="btn btn-sm btn-secondary copy-code-btn" id="btn-copy-code" data-code-target="tds-code-block">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span id="copy-btn-text">Copy Code</span>
+          </button>
+        </div>
+        
+        <div class="code-block-container">
+          <div class="code-header-bar">
+            <span class="code-file-name">tds_water_quality.ino</span>
+            <span class="code-lang-tag">C++ / Arduino</span>
+          </div>
+          <pre class="code-pre"><code id="tds-code-block"><span class="code-keyword">#define</span> TdsSensorPin A0
+<span class="code-keyword">#define</span> VREF <span class="code-number">5.0</span>      <span class="code-comment">// Analog reference voltage</span>
+<span class="code-keyword">#define</span> SCOUNT  <span class="code-number">30</span>     <span class="code-comment">// Sample array count</span>
+
+<span class="code-keyword">int</span> analogBuffer[SCOUNT];
+<span class="code-keyword">int</span> analogBufferTemp[SCOUNT];
+<span class="code-keyword">int</span> analogBufferIndex = <span class="code-number">0</span>;
+<span class="code-keyword">float</span> averageVoltage = <span class="code-number">0</span>;
+<span class="code-keyword">float</span> tdsValue = <span class="code-number">0</span>;
+<span class="code-keyword">float</span> temperature = <span class="code-number">25.0</span>; <span class="code-comment">// Default 25°C</span>
+
+<span class="code-keyword">void</span> <span class="code-func">setup</span>() {
+  Serial.<span class="code-func">begin</span>(<span class="code-number">9600</span>);
+  <span class="code-func">pinMode</span>(TdsSensorPin, <span class="code-const">INPUT</span>);
+}
+
+<span class="code-keyword">void</span> <span class="code-func">loop</span>() {
+  <span class="code-keyword">static</span> <span class="code-keyword">unsigned long</span> sampleTime = <span class="code-func">millis</span>();
+  <span class="code-keyword">if</span> (<span class="code-func">millis</span>() - sampleTime &gt; <span class="code-number">40U</span>) {
+    sampleTime = <span class="code-func">millis</span>();
+    analogBuffer[analogBufferIndex] = <span class="code-func">analogRead</span>(TdsSensorPin);
+    analogBufferIndex++;
+    <span class="code-keyword">if</span> (analogBufferIndex == SCOUNT) analogBufferIndex = <span class="code-number">0</span>;
+  }
+
+  <span class="code-keyword">static</span> <span class="code-keyword">unsigned long</span> printTime = <span class="code-func">millis</span>();
+  <span class="code-keyword">if</span> (<span class="code-func">millis</span>() - printTime &gt; <span class="code-number">800U</span>) {
+    printTime = <span class="code-func">millis</span>();
+    
+    <span class="code-comment">// Calculate voltage</span>
+    averageVoltage = <span class="code-func">analogRead</span>(TdsSensorPin) * (<span class="code-keyword">float</span>)VREF / <span class="code-number">1024.0</span>;
+    
+    <span class="code-comment">// Temperature Compensation Factor</span>
+    <span class="code-keyword">float</span> compensationCoefficient = <span class="code-number">1.0</span> + <span class="code-number">0.02</span> * (temperature - <span class="code-number">25.0</span>);
+    <span class="code-keyword">float</span> compensationVoltage = averageVoltage / compensationCoefficient;
+    
+    <span class="code-comment">// Convert voltage to TDS value (PPM)</span>
+    tdsValue = (<span class="code-number">133.42</span> * compensationVoltage * compensationVoltage * compensationVoltage 
+               - <span class="code-number">255.86</span> * compensationVoltage * compensationVoltage 
+               + <span class="code-number">857.39</span> * compensationVoltage) * <span class="code-number">0.5</span>;
+
+    Serial.<span class="code-func">print</span>(<span class="code-string">"TDS Value: "</span>);
+    Serial.<span class="code-func">print</span>(tdsValue, <span class="code-number">0</span>);
+    Serial.<span class="code-func">println</span>(<span class="code-string">" ppm"</span>);
+  }
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- TESTING & RESULTS -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Testing &amp; Results</h2>
+        <div class="table-container mb-4">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Water Sample</th>
+                <th style="text-align:right;">TDS Reading (ppm)</th>
+                <th>Observation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Sample 1</strong> (Tap Water)</td>
+                <td style="text-align:right; font-family:monospace; color:var(--accent);">—</td>
+                <td style="color:var(--text-muted); font-style:italic;">[ Enter observation ]</td>
+              </tr>
+              <tr>
+                <td><strong>Sample 2</strong> (Filtered / RO Water)</td>
+                <td style="text-align:right; font-family:monospace; color:var(--accent);">—</td>
+                <td style="color:var(--text-muted); font-style:italic;">[ Enter observation ]</td>
+              </tr>
+              <tr>
+                <td><strong>Sample 3</strong> (Mineral / Sample Water)</td>
+                <td style="text-align:right; font-family:monospace; color:var(--accent);">—</td>
+                <td style="color:var(--text-muted); font-style:italic;">[ Enter observation ]</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="testing-photo-area">
+          <div class="testing-photo-placeholder">
+            <span class="photo-icon">📷</span>
+            <span class="photo-title">Testing Setup Photo</span>
+            <span class="photo-sub">Replace with actual experimental testing photograph</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- OUTPUT SECTION -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Output</h2>
+        <div class="output-card">
+          <div class="output-row">
+            <span class="output-label">TDS Value:</span>
+            <span class="output-value">___ ppm</span>
+          </div>
+          <div class="output-row">
+            <span class="output-label">Water Quality Indication:</span>
+            <span class="output-value">___</span>
+          </div>
+        </div>
+        <p class="table-disclaimer-note mt-3">
+          * Ready for actual output screenshot / display photo upload.
+        </p>
+      </section>
+
+      <!-- PROJECT OUTCOME -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Outcome</h2>
+        <div class="detail-text-content">
+          <p>
+            The TDS-Based Water Quality Tester successfully demonstrates the use of an Arduino UNO and TDS sensor for measuring dissolved-solids levels in water. The project provides practical experience in sensor interfacing, analog measurement, microcontroller programming, and real-time data display.
+          </p>
+        </div>
+      </section>
+
+      <!-- PROJECT NAVIGATION -->
+      <nav class="project-bottom-navigation" aria-label="Project Page Navigation">
+        <a href="project-traffic-light.html" class="btn btn-secondary nav-proj-btn" id="btn-nav-prev">
+          ← Previous Project
+        </a>
+        <a href="index.html#projects" class="btn btn-ghost nav-proj-btn" id="btn-nav-back-mid">
+          Back to Projects
+        </a>
+        <a href="index.html#projects" class="btn btn-primary nav-proj-btn" id="btn-nav-next">
+          Next Project →
+        </a>
+      </nav>
+
+    </div>
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close">&times;</button>
+      <img src="" alt="Enlarged Project View" class="lightbox-img" id="lightbox-img" />
+      <div class="lightbox-caption" id="lightbox-caption">Caption text</div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" id="footer">
+    <div class="container footer-inner">
+
+      <div class="footer-left">
+        <span class="footer-copy">© 2026 Navin Kumar S. All rights reserved.</span>
+      </div>
+
+      <div class="footer-right">
+        <a href="https://github.com/SNK9728" class="footer-link" id="footer-github" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/navin-kumar-singaravelan-812a70387?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" class="footer-link" id="footer-linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+          LinkedIn
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

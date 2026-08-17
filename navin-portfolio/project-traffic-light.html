@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Automatic Traffic Light System using Arduino UNO — Detailed embedded systems project showcase by Navin Kumar S." />
+  <meta name="keywords" content="Arduino UNO, Traffic Light System, Embedded Systems, C/C++, Microcontroller, Electronics, Navin Kumar S" />
+  <meta name="author" content="Navin Kumar S" />
+  <meta property="og:title" content="Automatic Traffic Light System using Arduino UNO | Navin Kumar S" />
+  <meta property="og:description" content="An Arduino UNO based automatic traffic light system that controls Red, Yellow, and Green LEDs in a predefined sequence." />
+  <meta property="og:type" content="article" />
+  <title>Automatic Traffic Light System using Arduino UNO | Navin Kumar S</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="project-details-page">
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+
+      <!-- Logo / Brand -->
+      <a href="index.html#home" class="nav-brand" id="nav-logo">
+        <span class="brand-name">Navin Kumar S</span>
+        <span class="brand-sep">/</span>
+        <span class="brand-role">ECE</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="index.html#home" class="nav-link" id="nav-home">Home</a>
+        <a href="index.html#about" class="nav-link" id="nav-about">About</a>
+        <a href="index.html#skills" class="nav-link" id="nav-skills">Skills</a>
+        <a href="index.html#projects" class="nav-link active" id="nav-projects">Projects</a>
+        <a href="index.html#certificates" class="nav-link" id="nav-certificates">Certificates</a>
+        <a href="index.html#education" class="nav-link" id="nav-education">Education</a>
+        <a href="index.html#activities" class="nav-link" id="nav-activities">Activities</a>
+        <a href="index.html#contact" class="nav-link" id="nav-contact">Contact</a>
+      </nav>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+      </button>
+
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="index.html#home" class="mobile-link">Home</a>
+      <a href="index.html#about" class="mobile-link">About</a>
+      <a href="index.html#skills" class="mobile-link">Skills</a>
+      <a href="index.html#projects" class="mobile-link active">Projects</a>
+      <a href="index.html#certificates" class="mobile-link">Certificates</a>
+      <a href="index.html#education" class="mobile-link">Education</a>
+      <a href="index.html#activities" class="mobile-link">Activities</a>
+      <a href="index.html#contact" class="mobile-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       PROJECT DETAILS CONTAINER
+  ============================================================ -->
+  <main class="project-details-main">
+    <div class="container">
+
+      <!-- Breadcrumb Navigation -->
+      <nav class="project-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html#projects" class="back-link" id="back-to-projects-top">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Projects
+        </a>
+      </nav>
+
+      <!-- PROJECT HEADER -->
+      <header class="project-header-section">
+        <div class="project-badge-pill">Embedded Systems Project</div>
+        <h1 class="project-main-title">Automatic Traffic Light System using Arduino UNO</h1>
+        <p class="project-meta-line">Arduino UNO | Embedded Systems | C/C++</p>
+      </header>
+
+      <!-- HERO PROJECT IMAGE -->
+      <section class="project-hero-image-section">
+        <div class="project-image-container">
+          <!-- Replace traffic-light.jpg with your actual project photograph -->
+          <img 
+            src="images/traffic-light.jpg" 
+            alt="Automatic Traffic Light System using Arduino UNO" 
+            class="project-hero-img" 
+            id="main-project-img"
+            onerror="this.onerror=null; this.classList.add('img-hidden'); document.getElementById('hero-img-fallback').classList.remove('hidden');"
+          />
+          <div class="project-img-fallback hidden" id="hero-img-fallback">
+            <div class="fallback-icon">🚦</div>
+            <div class="fallback-title">Project Image</div>
+            <div class="fallback-sub">Automatic Traffic Light System using Arduino UNO</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECT OVERVIEW -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Project Overview</h2>
+        <div class="detail-text-content">
+          <p>
+            The Automatic Traffic Light System using Arduino UNO is an embedded system project designed to simulate the operation of a real-world traffic signal. The Arduino UNO controls three LEDs representing the Red, Yellow, and Green traffic lights according to a predefined timing sequence.
+          </p>
+          <p>
+            The system demonstrates the basic concepts of microcontroller programming, digital output control, timing, and embedded system design.
+          </p>
+        </div>
+      </section>
+
+      <!-- OBJECTIVE -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Objective</h2>
+        <div class="detail-text-content">
+          <p>
+            To design and implement a simple automatic traffic light system using Arduino UNO that controls traffic signal LEDs in a sequential and timed manner.
+          </p>
+        </div>
+      </section>
+
+      <!-- COMPONENTS USED -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Components Used</h2>
+        <div class="components-grid">
+          
+          <div class="component-card">
+            <div class="component-icon">⚡</div>
+            <div class="component-name">Arduino UNO</div>
+            <div class="component-desc">ATmega328P Microcontroller Board</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon" style="color: #FF3B30;">🔴</div>
+            <div class="component-name">Red LED</div>
+            <div class="component-desc">Stop Signal Light (5mm)</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon" style="color: #FFCC00;">🟡</div>
+            <div class="component-name">Yellow LED</div>
+            <div class="component-desc">Wait/Caution Signal Light (5mm)</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon" style="color: #34C759;">🟢</div>
+            <div class="component-name">Green LED</div>
+            <div class="component-desc">Go Signal Light (5mm)</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon">🔌</div>
+            <div class="component-name">Resistors</div>
+            <div class="component-desc">220Ω Current Limiting Resistors</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon">🟫</div>
+            <div class="component-name">Breadboard</div>
+            <div class="component-desc">Solderless Prototyping Board</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon">🔀</div>
+            <div class="component-name">Jumper Wires</div>
+            <div class="component-desc">Male-to-Male Connecting Wires</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon">💻</div>
+            <div class="component-name">USB Cable</div>
+            <div class="component-desc">USB Type-A to B Programming Cable</div>
+          </div>
+
+          <div class="component-card">
+            <div class="component-icon">🔋</div>
+            <div class="component-name">Power Supply</div>
+            <div class="component-desc">5V DC Power Source / USB Power</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- WORKING PRINCIPLE -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">How It Works</h2>
+        <div class="detail-text-content mb-4">
+          <p>
+            The Arduino program controls the LEDs using digital output pins and delay/timing instructions. The sequence runs automatically in an infinite loop once the microcontroller is powered on.
+          </p>
+        </div>
+
+        <!-- Vertical Flow Diagram / Timeline -->
+        <div class="working-flow-container">
+          
+          <div class="flow-step">
+            <div class="flow-node">1</div>
+            <div class="flow-card">
+              <h3 class="flow-title">Arduino UNO starts</h3>
+              <p class="flow-desc">Microcontroller initializes GPIO pins 8, 9, and 10 as digital outputs in <code>setup()</code>.</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="flow-node node-red">2</div>
+            <div class="flow-card">
+              <h3 class="flow-title">Red LED turns ON</h3>
+              <p class="flow-desc">Pin 8 set to HIGH for 5000ms (5 seconds) to signal traffic to stop.</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="flow-node">3</div>
+            <div class="flow-card">
+              <h3 class="flow-title">Red LED turns OFF</h3>
+              <p class="flow-desc">Pin 8 set to LOW immediately before changing to yellow transition.</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="flow-node node-yellow">4</div>
+            <div class="flow-card">
+              <h3 class="flow-title">Yellow LED turns ON</h3>
+              <p class="flow-desc">Pin 9 set to HIGH for 2000ms (2 seconds) to signal caution/transition.</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="flow-node">5</div>
+            <div class="flow-card">
+              <h3 class="flow-title">Yellow LED turns OFF</h3>
+              <p class="flow-desc">Pin 9 set to LOW prior to turning on green light.</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="flow-node node-green">6</div>
+            <div class="flow-card">
+              <h3 class="flow-title">Green LED turns ON</h3>
+              <p class="flow-desc">Pin 10 set to HIGH for 5000ms (5 seconds) allowing traffic to proceed.</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="flow-node">7</div>
+            <div class="flow-card">
+              <h3 class="flow-title">Green LED turns OFF</h3>
+              <p class="flow-desc">Pin 10 set to LOW completing one full signal cycle.</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-step">
+            <div class="flow-node node-repeat">🔄</div>
+            <div class="flow-card">
+              <h3 class="flow-title">Cycle repeats automatically</h3>
+              <p class="flow-desc">The main <code>loop()</code> function automatically repeats the signal cycle indefinitely.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TECHNOLOGIES USED -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Technologies Used</h2>
+        <div class="tech-tags-list">
+          <span class="detail-tag">Arduino UNO</span>
+          <span class="detail-tag">Embedded C/C++</span>
+          <span class="detail-tag">Digital Electronics</span>
+          <span class="detail-tag">LED Control</span>
+          <span class="detail-tag">Microcontroller Programming</span>
+        </div>
+      </section>
+
+      <!-- KEY FEATURES -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Key Features</h2>
+        <ul class="features-list">
+          <li class="feature-item">
+            <span class="feature-bullet">◆</span>
+            <span class="feature-text"><strong>Automatic signal sequence:</strong> Operates fully autonomously without manual intervention.</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-bullet">◆</span>
+            <span class="feature-text"><strong>Three-color traffic indication:</strong> Clear Red, Yellow, and Green state representations with programmed delays.</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-bullet">◆</span>
+            <span class="feature-text"><strong>Arduino-based control:</strong> Efficient GPIO timing and state logic using C/C++.</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-bullet">◆</span>
+            <span class="feature-text"><strong>Simple and low-cost design:</strong> Minimal hardware setup utilizing standard off-the-shelf electronics.</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-bullet">◆</span>
+            <span class="feature-text"><strong>Easy to understand and implement:</strong> Clean codebase suitable for embedded systems learning and prototyping.</span>
+          </li>
+          <li class="feature-item">
+            <span class="feature-bullet">◆</span>
+            <span class="feature-text"><strong>Demonstrates real-world traffic signal operation:</strong> Accurate representation of real-world intersection signal control.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- CIRCUIT / IMPLEMENTATION IMAGES SECTION -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Circuit &amp; Implementation</h2>
+        <div class="circuit-images-grid">
+          
+          <div class="circuit-image-card">
+            <!-- Replace traffic-light.jpg with your actual project photograph -->
+            <img 
+              src="images/traffic-light.jpg" 
+              alt="Traffic Light System Main Overview" 
+              class="circuit-img"
+              onerror="this.onerror=null; this.classList.add('img-hidden'); this.nextElementSibling.classList.remove('hidden');"
+            />
+            <div class="circuit-img-fallback hidden">
+              <div class="fallback-icon">📐</div>
+              <div class="fallback-title">Project Overview Photo</div>
+              <div class="fallback-sub">traffic-light.jpg</div>
+            </div>
+            <div class="circuit-card-label">Main Project Overview</div>
+          </div>
+
+          <div class="circuit-image-card">
+            <!-- Replace traffic-light-circuit.jpg with your actual circuit diagram photo -->
+            <img 
+              src="images/traffic-light-circuit.jpg" 
+              alt="Traffic Light System Circuit Diagram" 
+              class="circuit-img"
+              onerror="this.onerror=null; this.classList.add('img-hidden'); this.nextElementSibling.classList.remove('hidden');"
+            />
+            <div class="circuit-img-fallback hidden">
+              <div class="fallback-icon">⚡</div>
+              <div class="fallback-title">Circuit Diagram Photo</div>
+              <div class="fallback-sub">traffic-light-circuit.jpg</div>
+            </div>
+            <div class="circuit-card-label">Circuit Diagram &amp; Schematics</div>
+          </div>
+
+          <div class="circuit-image-card">
+            <!-- Replace traffic-light-working.jpg with your actual hardware setup photo -->
+            <img 
+              src="images/traffic-light-working.jpg" 
+              alt="Traffic Light System Hardware Implementation" 
+              class="circuit-img"
+              onerror="this.onerror=null; this.classList.add('img-hidden'); this.nextElementSibling.classList.remove('hidden');"
+            />
+            <div class="circuit-img-fallback hidden">
+              <div class="fallback-icon">🔬</div>
+              <div class="fallback-title">Hardware Setup Photo</div>
+              <div class="fallback-sub">traffic-light-working.jpg</div>
+            </div>
+            <div class="circuit-card-label">Hardware Working Setup</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CODE SECTION -->
+      <section class="project-detail-block">
+        <div class="code-section-header">
+          <h2 class="detail-section-title" style="margin-bottom:0;">Arduino Code</h2>
+          <button class="btn btn-sm btn-secondary copy-code-btn" id="btn-copy-code" data-code-target="arduino-code-block">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span id="copy-btn-text">Copy Code</span>
+          </button>
+        </div>
+        
+        <div class="code-block-container">
+          <div class="code-header-bar">
+            <span class="code-file-name">traffic_light.ino</span>
+            <span class="code-lang-tag">C++ / Arduino</span>
+          </div>
+          <pre class="code-pre"><code id="arduino-code-block"><span class="code-keyword">int</span> redLED = <span class="code-number">8</span>;
+<span class="code-keyword">int</span> yellowLED = <span class="code-number">9</span>;
+<span class="code-keyword">int</span> greenLED = <span class="code-number">10</span>;
+
+<span class="code-keyword">void</span> <span class="code-func">setup</span>() {
+  <span class="code-func">pinMode</span>(redLED, <span class="code-const">OUTPUT</span>);
+  <span class="code-func">pinMode</span>(yellowLED, <span class="code-const">OUTPUT</span>);
+  <span class="code-func">pinMode</span>(greenLED, <span class="code-const">OUTPUT</span>);
+}
+
+<span class="code-keyword">void</span> <span class="code-func">loop</span>() {
+
+  <span class="code-func">digitalWrite</span>(redLED, <span class="code-const">HIGH</span>);
+  <span class="code-func">delay</span>(<span class="code-number">5000</span>);
+  <span class="code-func">digitalWrite</span>(redLED, <span class="code-const">LOW</span>);
+
+  <span class="code-func">digitalWrite</span>(yellowLED, <span class="code-const">HIGH</span>);
+  <span class="code-func">delay</span>(<span class="code-number">2000</span>);
+  <span class="code-func">digitalWrite</span>(yellowLED, <span class="code-const">LOW</span>);
+
+  <span class="code-func">digitalWrite</span>(greenLED, <span class="code-const">HIGH</span>);
+  <span class="code-func">delay</span>(<span class="code-number">5000</span>);
+  <span class="code-func">digitalWrite</span>(greenLED, <span class="code-const">LOW</span>);
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- PROJECT OUTCOME -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Outcome</h2>
+        <div class="detail-text-content">
+          <p>
+            The project successfully demonstrates an automatic traffic signal sequence using Arduino UNO. It provides a simple practical demonstration of microcontroller-based control and digital output programming.
+          </p>
+        </div>
+      </section>
+
+      <!-- PROJECT NAVIGATION -->
+      <nav class="project-bottom-navigation" aria-label="Project Page Navigation">
+        <a href="index.html#projects" class="btn btn-secondary nav-proj-btn" id="btn-nav-back">
+          ← Back to Projects
+        </a>
+        <a href="project-tds-water-quality.html" class="btn btn-primary nav-proj-btn" id="btn-nav-next">
+          Next Project →
+        </a>
+      </nav>
+
+    </div>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" id="footer">
+    <div class="container footer-inner">
+
+      <div class="footer-left">
+        <span class="footer-copy">© 2026 Navin Kumar S. All rights reserved.</span>
+      </div>
+
+      <div class="footer-right">
+        <a href="https://github.com/SNK9728" class="footer-link" id="footer-github" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/navin-kumar-singaravelan-812a70387?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" class="footer-link" id="footer-linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

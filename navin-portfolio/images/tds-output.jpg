@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#0D0D0D"/>
+  <rect x="1" y="1" width="798" height="448" rx="8" stroke="#292929" stroke-width="2"/>
+  <path d="M0 75H800M0 150H800M0 225H800M0 300H800M0 375H800" stroke="#1A1A1A" stroke-width="1"/>
+  <path d="M133 0V450M266 0V450M400 0V450M533 0V450M666 0V450" stroke="#1A1A1A" stroke-width="1"/>
+  <rect x="250" y="150" width="300" height="150" rx="8" fill="#141414" stroke="#FF6B00" stroke-width="2"/>
+  <text x="400" y="215" fill="#F5F5F5" font-family="Inter, sans-serif" font-size="18" font-weight="700" text-anchor="middle">TDS Display Output</text>
+  <text x="400" y="250" fill="#A0A0A0" font-family="Inter, sans-serif" font-size="13" font-weight="400" text-anchor="middle">tds-output.jpg</text>
+</svg>

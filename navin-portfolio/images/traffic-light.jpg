@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <rect width="1200" height="675" fill="#0D0D0D"/>
+  <rect x="1" y="1" width="1198" height="673" rx="12" stroke="#292929" stroke-width="2"/>
+  
+  <!-- Subtle Grid Lines -->
+  <path d="M0 100H1200M0 200H1200M0 300H1200M0 400H1200M0 500H1200M0 600H1200" stroke="#1A1A1A" stroke-width="1"/>
+  <path d="M200 0V675M400 0V675M600 0V675M800 0V675M1000 0V675" stroke="#1A1A1A" stroke-width="1"/>
+  
+  <!-- Traffic Light Housing Outline -->
+  <rect x="520" y="120" width="160" height="435" rx="30" fill="#141414" stroke="#FF6B00" stroke-width="3"/>
+  <rect x="580" y="555" width="40" height="80" fill="#222222"/>
+  
+  <!-- Lights -->
+  <!-- Red -->
+  <circle cx="600" cy="190" r="45" fill="#FF3B30" opacity="0.9"/>
+  <circle cx="600" cy="190" r="45" stroke="#FF6B00" stroke-width="2" fill="none"/>
+  
+  <!-- Yellow -->
+  <circle cx="600" cy="335" r="45" fill="#FFCC00" opacity="0.9"/>
+  <circle cx="600" cy="335" r="45" stroke="#FF6B00" stroke-width="2" fill="none"/>
+  
+  <!-- Green -->
+  <circle cx="600" cy="480" r="45" fill="#34C759" opacity="0.9"/>
+  <circle cx="600" cy="480" r="45" stroke="#FF6B00" stroke-width="2" fill="none"/>
+  
+  <!-- Microcontroller Icon Badge -->
+  <rect x="100" y="270" width="280" height="135" rx="10" fill="#111" stroke="#333" stroke-width="2"/>
+  <text x="240" y="325" fill="#F5F5F5" font-family="Inter, sans-serif" font-size="20" font-weight="700" text-anchor="middle">ARDUINO UNO</text>
+  <text x="240" y="360" fill="#FF6B00" font-family="Inter, sans-serif" font-size="14" font-weight="500" text-anchor="middle">ATmega328P Control</text>
+  
+  <!-- Wiring connections graphic -->
+  <path d="M380 310 H480 V190 H520" stroke="#FF6B00" stroke-width="3" stroke-dasharray="6 6"/>
+  <path d="M380 337 H480 V335 H520" stroke="#FFCC00" stroke-width="3" stroke-dasharray="6 6"/>
+  <path d="M380 365 H480 V480 H520" stroke="#34C759" stroke-width="3" stroke-dasharray="6 6"/>
+  
+  <!-- Title Badge -->
+  <rect x="740" y="270" width="360" height="135" rx="10" fill="#111" stroke="#333" stroke-width="2"/>
+  <text x="920" y="325" fill="#F5F5F5" font-family="Inter, sans-serif" font-size="20" font-weight="700" text-anchor="middle">Project Image</text>
+  <text x="920" y="360" fill="#A0A0A0" font-family="Inter, sans-serif" font-size="14" font-weight="400" text-anchor="middle">Automatic Traffic Light System</text>
+</svg>
