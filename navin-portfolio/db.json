@@ -15,8 +15,8 @@
     "degree": "B.E. Electronics and Communication Engineering",
     "eduStatus": "Engineering Student",
     "institution": "SIMATS University, Chennai",
-    "cgpa": "8.8 / 10",
-    "year": "2026",
+    "cgpa": "7.7 / 10",
+    "year": "2025 — 2029",
     "skillsLang": "HTML, CSS, JavaScript, C, C++",
     "skillsHW": "Arduino, ESP32, Embedded Systems, IoT, Electronics",
     "skillsTools": "Git, GitHub"
@@ -101,21 +101,24 @@
     },
     {
       "id": "3",
-      "title": "IoT-Based Smart Elder Care System",
-      "shortDesc": "A smart monitoring system using sensors and IoT technology for elderly safety and real-time fall detection.",
-      "fullDesc": "A biomedical safety monitor designed for senior citizens. Combines MPU6050 6-axis accelerometer/gyroscope sensors with dynamic acceleration vector thresholding algorithms for fall detection, paired with a MAX30102 PPG sensor for heart rate and blood oxygen (SpO2) vitals tracking.",
-      "category": "Biomedical & IoT",
-      "technologies": ["IoT", "MPU6050", "MAX30102", "ESP32", "Arduino", "Twilio / SMS API"],
+      "title": "TinyML-Based Predictive Maintenance System for Industrial Motors",
+      "shortDesc": "An embedded system designed to monitor motor vibration and temperature data for real-time fault detection using sensors and TinyML.",
+      "fullDesc": "A TinyML-Based Predictive Maintenance System is an embedded system designed to monitor the condition of industrial motors and identify early signs of faults. Sensors such as an MPU6050 accelerometer and DHT22 temperature sensor collect vibration and temperature data from the motor. The collected data is processed using a TinyML model to detect abnormal operating conditions and predict potential motor failures before they occur.",
+      "category": "TinyML & Embedded AI",
+      "technologies": ["Arduino UNO / ESP32", "MPU6050", "DHT22", "TinyML", "Embedded C/C++"],
       "features": [
-        "Fall detection using acceleration vector magnitude and tilt angle analysis",
-        "Continuous heart rate (BPM) and SpO2 vital signs telemetry",
-        "Instant SOS push button triggering automated SMS & WhatsApp alerts",
-        "Low-power deep sleep mode with motion wake-up interrupt"
+        "Real-time motor vibration and temperature monitoring",
+        "TinyML-based fault detection",
+        "Early identification of abnormal conditions",
+        "Reduces unexpected motor breakdowns",
+        "Low-cost Arduino/ESP32-based implementation",
+        "Supports preventive and predictive maintenance"
       ],
-      "architecture": "MPU6050 Acceleration + Pulse Oximeter -> ESP32 Microcontroller -> Fall/Vitals Algorithm -> WiFi/GSM Module -> Emergency Alerts",
-      "codeSnippet": "// Vector Acceleration Fall Detection Algorithm\nvoid checkFallDetection(float ax, float ay, float az, float pitch) {\n  float accVector = sqrt(ax*ax + ay*ay + az*az);\n  if (accVector > FALL_UPPER_THRESHOLD && fabs(pitch) > 60.0) {\n    triggerEmergencyAlert(\"FALL DETECTED AT LOCATION!\");\n  }\n}",
+      "architecture": "Industrial Motor → MPU6050 & DHT22 Sensors → Arduino/ESP32 TinyML Model → Real-Time Fault Telemetry",
+      "codeSnippet": "// TinyML Motor Fault Classification\nvoid loop() {\n  float ax, ay, az, temp;\n  readMPU6050vibrations(&ax, &ay, &az);\n  temp = readDHT22temperature();\n  int result = tinyML_classify(ax, ay, az, temp);\n  if (result == FAULT_DETECTED) {\n    triggerMaintenanceAlert();\n  }\n}",
       "github": "https://github.com/SNK9728",
-      "demo": "#"
+      "video": "images/project-predictive-maintenance.mp4",
+      "demo": "project-tinyml-predictive-maintenance.html"
     },
     {
       "id": "4",

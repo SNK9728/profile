@@ -548,15 +548,25 @@ button {
   color: var(--accent);
 }
 
-.nav-logo-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  object-fit: cover;
+.nav-logo-symbol {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--accent-dim);
   border: 1px solid var(--accent);
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
   margin-right: 8px;
   vertical-align: middle;
-  background: var(--bg-2);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.nav-brand:hover .nav-logo-symbol {
+  transform: scale(1.1) rotate(6deg);
+  background: var(--accent-dim2);
 }
 
 /* ── 8. SECTION COMMON ────────────────────────────────────── */
@@ -569,7 +579,7 @@ button {
 }
 
 .section-header {
-  margin-bottom: 60px;
+  margin-bottom: 32px;
 }
 
 .section-label {
@@ -679,9 +689,22 @@ button {
 }
 
 .skills-stack {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
+}
+
+.skill-category {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 22px;
+  transition: border-color 0.22s ease, transform 0.22s ease;
+}
+
+.skill-category:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
 .certificates-grid {
