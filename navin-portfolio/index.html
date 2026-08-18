@@ -27,7 +27,6 @@
       <a href="#home" class="nav-brand" id="nav-logo">
         <span class="nav-logo-symbol" aria-hidden="true">⚡</span>
         <span class="brand-name">Navin Kumar S</span>
-        <span class="brand-sep">/</span>
         <span class="brand-role">ECE</span>
       </a>
 
@@ -42,6 +41,14 @@
         <a href="#activities"   class="nav-link"         id="nav-activities">Activities</a>
         <a href="#contact"      class="nav-link"         id="nav-contact">Contact</a>
       </nav>
+
+      <!-- Quick Action / Status CTA -->
+      <div class="nav-cta-wrap">
+        <a href="#contact" class="nav-status-badge">
+          <span class="status-pulse-dot"></span>
+          <span>Available</span>
+        </a>
+      </div>
 
       <!-- Hamburger (mobile) -->
       <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -69,6 +76,75 @@
        HERO SECTION (Reference Layout Redesign)
   ============================================================ -->
   <section class="hero" id="home">
+    <!-- MARVEL LOKI SACRED TIMELINE BACKGROUND ARTWORK -->
+    <div class="loki-timeline-bg" aria-hidden="true">
+      <svg class="loki-svg-timeline" viewBox="0 0 1440 600" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="lokiTimelineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FF6B00" stop-opacity="0.1"/>
+            <stop offset="25%" stop-color="#FF6B00" stop-opacity="0.85"/>
+            <stop offset="50%" stop-color="#FF9E2A" stop-opacity="0.95"/>
+            <stop offset="75%" stop-color="#FF6B00" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#FF6B00" stop-opacity="0.1"/>
+          </linearGradient>
+
+          <linearGradient id="lokiBranchGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FF8C2A" stop-opacity="0.1"/>
+            <stop offset="50%" stop-color="#FFCC00" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#FF8C2A" stop-opacity="0.1"/>
+          </linearGradient>
+
+          <filter id="timelineGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="6" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Background Ambient Flow Weave Strands -->
+        <path d="M-100,280 C250,120 550,420 900,180 C1200,20 1400,340 1600,220" class="loki-strand loki-strand-bg1" />
+        <path d="M-100,340 C300,480 600,140 950,380 C1250,500 1450,160 1600,280" class="loki-strand loki-strand-bg2" />
+
+        <!-- MAIN SACRED TIMELINE CORE STRAND -->
+        <path d="M-50,300 C200,150 480,450 780,220 C1080,40 1320,380 1550,250" class="loki-main-timeline" filter="url(#timelineGlow)" />
+        
+        <!-- DASHED ENERGY FLOW STRAND -->
+        <path d="M-50,300 C200,150 480,450 780,220 C1080,40 1320,380 1550,250" class="loki-pulse-strand" />
+
+        <!-- NEXUS BRANCH TIMELINES -->
+        <path d="M320,240 C420,100 580,80 680,140" class="loki-branch-thread" />
+        <path d="M780,220 C880,360 1020,420 1150,320" class="loki-branch-thread" />
+        <path d="M1080,40 C1180,120 1280,60 1380,150" class="loki-branch-thread" />
+      </svg>
+
+      <!-- TEMPORAL EVENT NODES -->
+      <div class="loki-node loki-node-1" title="2022 — Engineering Foundation">
+        <span class="node-pulse-ring"></span>
+        <span class="node-core"></span>
+        <span class="node-label">2022 · B.Tech ECE</span>
+      </div>
+
+      <div class="loki-node loki-node-2" title="2024 — Embedded Firmware & IoT">
+        <span class="node-pulse-ring"></span>
+        <span class="node-core"></span>
+        <span class="node-label">2024 · IoT &amp; Hardware</span>
+      </div>
+
+      <div class="loki-node loki-node-3" title="2025 — Telemetry & TinyML Exploration">
+        <span class="node-pulse-ring"></span>
+        <span class="node-core"></span>
+        <span class="node-label">2025 · TinyML &amp; Systems</span>
+      </div>
+
+      <div class="loki-node loki-node-4" title="2026 — Future Engineering Horizon">
+        <span class="node-pulse-ring"></span>
+        <span class="node-core"></span>
+        <span class="node-label">2026 · Future Horizon</span>
+      </div>
+    </div>
+
     <div class="container">
       <div class="hero-grid">
 
@@ -146,17 +222,86 @@
         <h2 class="section-title">About Me</h2>
       </div>
 
-      <div class="about-content reveal">
-        <p class="about-text">
-          I am an Electronics and Communication Engineering student with a strong interest in
-          technology, electronics, programming, embedded systems, IoT, and web development.
-          I enjoy turning ideas into practical projects by combining hardware and software.
-        </p>
-        <p class="about-text">
-          My goal is to continuously improve my technical skills, build useful engineering
-          solutions, and explore areas such as embedded systems, communication technologies,
-          web development, and chip design.
-        </p>
+      <div class="about-grid reveal">
+        
+        <!-- Left Column: Bio Narrative & Specialization Pills -->
+        <div class="about-bio-col">
+          <p class="about-text">
+            I am an Electronics and Communication Engineering (ECE) student at SRM Institute of Science and Technology, driven by a passion for creating tangible solutions through hardware-software co-design. My technical work spans embedded C/C++ programming, IoT system architecture, sensor integration, and modern web development.
+          </p>
+          <p class="about-text">
+            I specialize in transforming complex engineering concepts into functional prototypes — ranging from automatic traffic signal controllers and real-time TDS water quality telemetry to TinyML predictive maintenance models for industrial machinery.
+          </p>
+          <p class="about-text">
+            My goal is to continuously advance in embedded AI, chip design, wireless communication, and intelligent systems while building reliable, production-ready software and hardware tools.
+          </p>
+
+          <div class="about-highlights-pills">
+            <span class="about-pill"><span class="orange-emoji">⚡</span> Embedded Systems</span>
+            <span class="about-pill"><span class="orange-emoji">📡</span> IoT Telemetry</span>
+            <span class="about-pill"><span class="orange-emoji">💻</span> Web Engineering</span>
+            <span class="about-pill"><span class="orange-emoji">🧠</span> TinyML &amp; AI</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Quick Specs & Focus Cards (Fills Empty Right Space) -->
+        <div class="about-cards-col">
+          
+          <div class="about-card">
+            <div class="about-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="4" width="16" height="16" rx="2" fill="none"/>
+                <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
+                <line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+                <line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="15" x2="23" y2="15"/>
+                <line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="15" x2="4" y2="15"/>
+              </svg>
+            </div>
+            <div class="about-card-info">
+              <h3 class="about-card-title">Core Engineering Domains</h3>
+              <p class="about-card-desc">Embedded C/C++, Arduino UNO, ESP32, Sensor Telemetry, Digital Electronics, REST APIs.</p>
+            </div>
+          </div>
+
+          <div class="about-card">
+            <div class="about-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <div class="about-card-info">
+              <h3 class="about-card-title">Current Research &amp; Exploration</h3>
+              <p class="about-card-desc">TinyML machine learning on edge devices, industrial motor vibration analysis, and water quality testing.</p>
+            </div>
+          </div>
+
+          <div class="about-card">
+            <div class="about-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+            </div>
+            <div class="about-card-info">
+              <h3 class="about-card-title">Academic Background</h3>
+              <p class="about-card-desc">B.Tech ECE at SRM Institute of Science and Technology (2022–2026 Batch).</p>
+            </div>
+          </div>
+
+          <div class="about-card">
+            <div class="about-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <div class="about-card-info">
+              <h3 class="about-card-title">Engineering Philosophy</h3>
+              <p class="about-card-desc">Building practical, reliable prototypes that solve real-world physical and digital challenges.</p>
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
     </div>
