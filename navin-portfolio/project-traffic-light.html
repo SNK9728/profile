@@ -104,7 +104,14 @@
             onerror="this.onerror=null; this.classList.add('img-hidden'); document.getElementById('hero-img-fallback').classList.remove('hidden');"
           />
           <div class="project-img-fallback hidden" id="hero-img-fallback">
-            <div class="fallback-icon">🚦</div>
+            <div class="fallback-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="2" width="12" height="20" rx="4" ry="4" fill="rgba(255, 107, 0, 0.15)"/>
+                <circle cx="12" cy="6" r="2" fill="currentColor"/>
+                <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                <circle cx="12" cy="18" r="2" fill="currentColor"/>
+              </svg>
+            </div>
             <div class="fallback-title">Project Image</div>
             <div class="fallback-sub">Automatic Traffic Light System using Arduino UNO</div>
           </div>
@@ -146,19 +153,19 @@
           </div>
 
           <div class="component-card">
-            <div class="component-icon" style="color: #FF3B30;">🔴</div>
+            <div class="component-icon" style="color: var(--accent);">🟠</div>
             <div class="component-name">Red LED</div>
             <div class="component-desc">Stop Signal Light (5mm)</div>
           </div>
 
           <div class="component-card">
-            <div class="component-icon" style="color: #FFCC00;">🟡</div>
+            <div class="component-icon" style="color: var(--accent);">🟠</div>
             <div class="component-name">Yellow LED</div>
             <div class="component-desc">Wait/Caution Signal Light (5mm)</div>
           </div>
 
           <div class="component-card">
-            <div class="component-icon" style="color: #34C759;">🟢</div>
+            <div class="component-icon" style="color: var(--accent);">🟠</div>
             <div class="component-name">Green LED</div>
             <div class="component-desc">Go Signal Light (5mm)</div>
           </div>

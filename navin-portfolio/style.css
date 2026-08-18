@@ -1138,6 +1138,9 @@ button {
   color: inherit;
   transition: border-color 0.22s, transform 0.22s, background 0.22s;
   cursor: pointer;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .contact-card:hover {
@@ -1295,7 +1298,14 @@ button {
 @media (max-width: 600px) {
   :root { --nav-h: 58px; }
 
-  .section { padding: 70px 0; }
+  .container {
+    padding: 0 16px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section { padding: 56px 0; }
 
   /* Hero */
   .hero-inner { padding-top: 52px; }
@@ -1312,8 +1322,39 @@ button {
   .edu-meta-row { flex-direction: column; gap: 2px; }
   .edu-meta-label { width: auto; }
 
-  /* Contact */
-  .contact-grid { grid-template-columns: 1fr; }
+  /* Contact (Mobile Overflow Fix - keeps contact cards strictly inside container box) */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 16px 14px;
+    gap: 12px;
+    overflow: hidden;
+  }
+
+  .contact-info {
+    min-width: 0;
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .contact-label {
+    font-size: 0.70rem;
+  }
+
+  .contact-value {
+    font-size: 0.82rem;
+    white-space: normal;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+  }
 
   /* Footer */
   .footer-inner { flex-direction: column; align-items: flex-start; }
@@ -2940,6 +2981,23 @@ button {
   color: var(--text-secondary);
   margin: 0;
 }
+
+/* ─────────────────────────────────────────────────────────────
+   ORANGE EMOJI STYLING (#FF6B00)
+   Applies orange color/filter ONLY to the emoji glyph span itself,
+   leaving container boxes (backgrounds, borders, cards) dark & untouched.
+   ───────────────────────────────────────────────────────────── */
+.orange-emoji,
+.emoji-text {
+  display: inline-block !important;
+  font-style: normal !important;
+  line-height: 1 !important;
+  color: var(--accent) !important;
+  /* CSS Filter applied ONLY to the emoji text glyph to turn it vibrant Orange (#FF6B00) */
+  filter: sepia(100%) hue-rotate(340deg) saturate(900%) brightness(0.95) !important;
+  -webkit-filter: sepia(100%) hue-rotate(340deg) saturate(900%) brightness(0.95) !important;
+}
+
 
 
 
