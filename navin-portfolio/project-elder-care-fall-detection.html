@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IoT-Based Smart Elder Care System with Real-Time Fall Detection — Embedded Systems and IoT showcase by Navin Kumar S." />
+  <meta name="keywords" content="IoT, Elder Care, Fall Detection, ESP32, MPU6050, DHT22, Embedded Systems, Real-Time Alert, Sensor Monitoring, Navin Kumar S" />
+  <meta name="author" content="Navin Kumar S" />
+  <meta property="og:title" content="IoT-Based Smart Elder Care System with Real-Time Fall Detection | Navin Kumar S" />
+  <meta property="og:description" content="An IoT monitoring system using MPU6050 accelerometer fall detection, DHT22 environmental sensors, and ESP32 real-time emergency alert telemetry." />
+  <title>IoT-Based Smart Elder Care System | Navin Kumar S</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="project-details-page">
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+
+      <!-- Logo / Brand -->
+      <a href="index.html#home" class="nav-brand" id="nav-logo">
+        <span class="nav-logo-symbol" aria-hidden="true">⚡</span>
+        <span class="brand-name">Navin Kumar S</span>
+        <span class="brand-role">ECE</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="index.html#home" class="nav-link" id="nav-home">Home</a>
+        <a href="index.html#about" class="nav-link" id="nav-about">About</a>
+        <a href="index.html#skills" class="nav-link" id="nav-skills">Skills</a>
+        <a href="index.html#projects" class="nav-link active" id="nav-projects">Projects</a>
+        <a href="index.html#certificates" class="nav-link" id="nav-certificates">Certificates</a>
+        <a href="index.html#education" class="nav-link" id="nav-education">Education</a>
+        <a href="index.html#activities" class="nav-link" id="nav-activities">Activities</a>
+        <a href="index.html#contact" class="nav-link" id="nav-contact">Contact</a>
+      </nav>
+
+      <!-- Quick Action / Status CTA -->
+      <div class="nav-cta-wrap">
+        <a href="index.html#contact" class="nav-status-badge">
+          <span class="status-pulse-dot"></span>
+          <span>Available</span>
+        </a>
+      </div>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+      </button>
+
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="index.html#home" class="mobile-link">Home</a>
+      <a href="index.html#about" class="mobile-link">About</a>
+      <a href="index.html#skills" class="mobile-link">Skills</a>
+      <a href="index.html#projects" class="mobile-link active">Projects</a>
+      <a href="index.html#certificates" class="mobile-link">Certificates</a>
+      <a href="index.html#education" class="mobile-link">Education</a>
+      <a href="index.html#activities" class="mobile-link">Activities</a>
+      <a href="index.html#contact" class="mobile-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       PROJECT DETAILS MAIN CONTAINER
+  ============================================================ -->
+  <main class="project-details-main">
+    <div class="container">
+
+      <!-- Breadcrumb Navigation -->
+      <nav class="project-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html#projects" class="back-link" id="back-to-projects-top">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Back to Projects
+        </a>
+      </nav>
+
+      <!-- PROJECT HEADER -->
+      <header class="project-header-section">
+        <div class="project-badge-pill">Internet of Things (IoT) / Embedded Systems</div>
+        <h1 class="project-main-title">IoT-Based Smart Elder Care System with Real-Time Fall Detection</h1>
+        <p class="project-meta-line">ESP32 | MPU6050 Accelerometer | DHT22 | Emergency Alert System | Internet of Things (IoT)</p>
+      </header>
+
+      <!-- HERO MEDIA SHOWCASE (VIDEO & PHOTO GRID) -->
+      <section class="project-hero-image-section">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; align-items: center;">
+          
+          <!-- Demonstration Video -->
+          <div class="project-video-container" style="border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: #080c14; text-align: center; box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
+            <div style="padding: 12px 16px; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-orange); text-align: left; display: flex; align-items: center; gap: 8px;">
+              <span>📹 Real-Time Video Demonstration</span>
+            </div>
+            <video controls autoplay loop muted playsinline class="project-hero-video" style="width: 100%; max-height: 480px; display: block; margin: 0 auto; object-fit: contain;">
+              <source src="images/project-elder-care-fall-detection.mp4" type="video/mp4" />
+              Your browser does not support HTML5 video playback.
+            </video>
+          </div>
+
+          <!-- Prototype Hardware Photo -->
+          <div class="project-photo-container" style="border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: #080c14; text-align: center; box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
+            <div style="padding: 12px 16px; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-orange); text-align: left; display: flex; align-items: center; gap: 8px;">
+              <span>🖼️ Hardware &amp; Sensor Setup Photo</span>
+            </div>
+            <img src="images/project-elder-care-fall-detection.jpg" alt="IoT Smart Elder Care Hardware Setup" style="width: 100%; max-height: 480px; display: block; object-fit: cover;" />
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PROJECT OVERVIEW -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Project Overview</h2>
+        <div class="detail-text-content">
+          <p>
+            This project is an <strong>IoT-based monitoring system designed to improve the safety of elderly people</strong> living independently or in assisted care facilities.
+          </p>
+          <p>
+            It uses sensors such as an <strong>MPU6050 accelerometer</strong> to detect sudden falls and a <strong>DHT22 sensor</strong> to monitor environmental conditions. The system processes the sensor data using an <strong>ESP32 microcontroller</strong> and can provide real-time alerts when abnormal movement or a possible fall is detected.
+          </p>
+        </div>
+      </section>
+
+      <!-- KEY FEATURES -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Key System Features</h2>
+        <div class="detail-text-content">
+          <ul class="detail-feature-list">
+            <li><strong>Real-Time Fall Detection:</strong> Continuous threshold monitoring of 3-axis acceleration vector magnitudes to detect sudden impact and posture changes.</li>
+            <li><strong>Motion and Activity Monitoring:</strong> Tracks daily movement patterns to detect prolonged immobility or unusual activity levels.</li>
+            <li><strong>Temperature and Humidity Monitoring:</strong> Integrated DHT22 ambient room diagnostics to ensure safe environmental conditions.</li>
+            <li><strong>ESP32-Based IoT Connectivity:</strong> Low-power wireless data telemetry streaming over Wi-Fi for remote monitoring dashboards.</li>
+            <li><strong>Emergency Alert System:</strong> Instant trigger notification dispatch upon fall detection or manual panic request.</li>
+            <li><strong>Continuous Elderly Safety Monitoring:</strong> 24/7 automated care oversight designed for home and healthcare environments.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- TECHNOLOGIES USED -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Technologies &amp; Components</h2>
+        <div class="tech-stack-grid">
+          <div class="tech-card">
+            <div class="tech-card-name">ESP32 Microcontroller</div>
+            <div class="tech-card-sub">Dual-Core Wi-Fi &amp; Bluetooth IoT Platform</div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-name">MPU6050 Accelerometer</div>
+            <div class="tech-card-sub">6-Axis Motion &amp; Impact Sensor</div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-name">DHT22 Sensor</div>
+            <div class="tech-card-sub">Digital Temperature &amp; Humidity Probe</div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-name">Emergency Telemetry</div>
+            <div class="tech-card-sub">Real-Time Alert Dispatching</div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-name">Embedded C / C++</div>
+            <div class="tech-card-sub">Firmware Algorithm &amp; Threshold Detection</div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-name">Internet of Things (IoT)</div>
+            <div class="tech-card-sub">System Integration &amp; Safety Protocol</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SYSTEM ARCHITECTURE -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">System Architecture &amp; Flow</h2>
+        <div class="detail-text-content">
+          <p class="architecture-flow" style="font-family: var(--font-mono, monospace); background: rgba(255,255,255,0.02); padding: 18px 24px; border-radius: 12px; border: 1px solid var(--border); color: #FF9E2A; line-height: 1.6;">
+            Sensors (MPU6050 &amp; DHT22) &rarr; ESP32 Microcontroller Core &rarr; Vector Magnitude Calculation &rarr; Threshold &amp; Impact Classifier &rarr; Immediate Emergency Alert &amp; IoT Telemetry
+          </p>
+        </div>
+      </section>
+
+      <!-- CODE SNIPPET -->
+      <section class="project-detail-block">
+        <h2 class="detail-section-title">Fall Detection Algorithm Snippet</h2>
+        <div class="code-snippet-container" style="background: #06090e; border-radius: 12px; border: 1px solid var(--border); padding: 20px; overflow-x: auto;">
+          <pre style="margin:0; font-family: 'Fira Code', 'Courier New', monospace; font-size: 0.9rem; color: #e2e8f0; line-height: 1.6;"><code>// IoT Smart Elder Care System - Fall Detection Core
+#include &lt;Adafruit_MPU6050.h&gt;
+#include &lt;DHT.h&gt;
+
+#define FALL_THRESHOLD 2.8 // Acceleration G-force threshold
+Adafruit_MPU6050 mpu;
+DHT dht(4, DHT22);
+
+void checkElderSafety() {
+  sensors_event_t a, g, temp;
+  mpu.getEvent(&a, &g, &temp);
+
+  // Calculate total acceleration vector magnitude (g)
+  float mag = sqrt(a.acceleration.x * a.acceleration.x +
+                   a.acceleration.y * a.acceleration.y +
+                   a.acceleration.z * a.acceleration.z) / 9.81;
+
+  if (mag > FALL_THRESHOLD) {
+    triggerEmergencyAlert("CRITICAL: Sudden Fall Detected!", mag);
+  }
+
+  float roomTemp = dht.readTemperature();
+  float humidity = dht.readHumidity();
+  publishIoTTelemetry(mag, roomTemp, humidity);
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- PROJECT ACTIONS / LINKS -->
+      <section class="project-detail-block project-actions-block">
+        <div class="action-buttons-group">
+          <a href="https://github.com/SNK9728" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            View GitHub Repository
+          </a>
+          <a href="index.html#projects" class="btn btn-secondary">Back to All Projects</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p class="footer-copy">&copy; 2026 Navin Kumar S. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

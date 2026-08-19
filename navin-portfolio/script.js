@@ -481,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Hero & Bio
     if (document.getElementById('edit-badge')) document.getElementById('edit-badge').value = data.heroBadge || '● Engineering Student & Tech Enthusiast';
-    if (document.getElementById('edit-title')) document.getElementById('edit-title').value = data.heroTitle || "Hi, I'm Navin Kumar S";
+    if (document.getElementById('edit-title')) document.getElementById('edit-title').value = data.heroTitle || "Hi, I am Navin Kumar S";
     if (document.getElementById('edit-subtitle')) document.getElementById('edit-subtitle').value = data.heroSubtitle || 'ECE Student | Electronics & Technology Enthusiast';
     if (document.getElementById('edit-hero-intro')) document.getElementById('edit-hero-intro').value = data.heroIntro || 'I am an Electronics and Communication Engineering student...';
     if (document.getElementById('edit-tech-tags')) document.getElementById('edit-tech-tags').value = data.techTags || 'Web Development, Embedded Systems, Electronics, IoT, Chip Design';
@@ -992,6 +992,108 @@ document.addEventListener('DOMContentLoaded', () => {
         closeCertModal();
       }
     });
+  /* ── 20. AMBIENT SPACE CANVAS BACKGROUND ENGINE ─── */
+  function initUltraRealisticReactorEngine() {
+    const canvas = document.getElementById('reactor-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    // Mouse Parallax Lerp State
+    let mouseX = width / 2;
+    let mouseY = height / 2;
+    let targetMouseX = width / 2;
+    let targetMouseY = height / 2;
+
+    // Reduced Motion Detection
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Window Listeners
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      targetMouseX = e.clientX;
+      targetMouseY = e.clientY;
+    });
+
+    // Particle Palette
+    const palette = ['#ffffff', '#00f0ff', '#00b4d8', '#7209b7', '#4895ef'];
+
+    // Particle System
+    const particleCount = width < 768 ? 60 : 120;
+    const particles = [];
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 2 + 0.8,
+        alpha: Math.random() * 0.6 + 0.2,
+        color: palette[Math.floor(Math.random() * palette.length)]
+      });
+    }
+
+    // Main Render Loop
+    function render() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Smooth Mouse Lerp
+      mouseX += (targetMouseX - mouseX) * 0.04;
+      mouseY += (targetMouseY - mouseY) * 0.04;
+
+      // Render Ambient Particles & Connections
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        if (!prefersReducedMotion) {
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+          if (p.y < 0) p.y = height;
+          if (p.y > height) p.y = 0;
+        }
+
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = p.color;
+        ctx.shadowBlur = 8;
+        ctx.globalAlpha = p.alpha;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1.0;
+
+        // Connect nearby particles
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 90) {
+            ctx.strokeStyle = 'rgba(0, 240, 255, ' + (0.25 * (1 - dist / 90)) + ')';
+            ctx.lineWidth = 0.6;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(render);
+    }
+
+    render();
   }
+
+  initUltraRealisticReactorEngine();
 
 }); // end DOMContentLoaded

@@ -377,7 +377,7 @@
           if (res.ok) {
             const data = await res.json();
             if (data.portfolio) {
-              document.getElementById('dash-hero-title').value = data.portfolio.heroTitle || "Hi, I'm Navin Kumar S";
+              document.getElementById('dash-hero-title').value = data.portfolio.heroTitle || "Hi, I am Navin Kumar S";
               document.getElementById('dash-hero-sub').value = data.portfolio.heroSubtitle || "ECE Student | Electronics & Technology Enthusiast";
               document.getElementById('dash-hero-intro').value = data.portfolio.heroIntro || "";
               document.getElementById('dash-cgpa').value = data.portfolio.cgpa || "8.8 / 10";

@@ -17,9 +17,13 @@
 </head>
 <body>
 
-  <!-- ============================================================
-       NAVBAR
-  ============================================================ -->
+  <!-- ULTRA-REALISTIC ARC REACTOR × MULTIVERSE CANVAS -->
+  <canvas id="reactor-canvas" aria-hidden="true"></canvas>
+
+  <!-- COSMIC NEBULA & ATMOSPHERIC GLOW LAYER -->
+  <div class="multiverse-nebula-bg" aria-hidden="true"></div>
+
+
   <header class="navbar" id="navbar">
     <div class="nav-container">
 
@@ -76,74 +80,6 @@
        HERO SECTION (Reference Layout Redesign)
   ============================================================ -->
   <section class="hero" id="home">
-    <!-- MARVEL LOKI SACRED TIMELINE BACKGROUND ARTWORK -->
-    <div class="loki-timeline-bg" aria-hidden="true">
-      <svg class="loki-svg-timeline" viewBox="0 0 1440 600" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="lokiTimelineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#FF6B00" stop-opacity="0.1"/>
-            <stop offset="25%" stop-color="#FF6B00" stop-opacity="0.85"/>
-            <stop offset="50%" stop-color="#FF9E2A" stop-opacity="0.95"/>
-            <stop offset="75%" stop-color="#FF6B00" stop-opacity="0.85"/>
-            <stop offset="100%" stop-color="#FF6B00" stop-opacity="0.1"/>
-          </linearGradient>
-
-          <linearGradient id="lokiBranchGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#FF8C2A" stop-opacity="0.1"/>
-            <stop offset="50%" stop-color="#FFCC00" stop-opacity="0.7"/>
-            <stop offset="100%" stop-color="#FF8C2A" stop-opacity="0.1"/>
-          </linearGradient>
-
-          <filter id="timelineGlow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="6" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
-        <!-- Background Ambient Flow Weave Strands -->
-        <path d="M-100,280 C250,120 550,420 900,180 C1200,20 1400,340 1600,220" class="loki-strand loki-strand-bg1" />
-        <path d="M-100,340 C300,480 600,140 950,380 C1250,500 1450,160 1600,280" class="loki-strand loki-strand-bg2" />
-
-        <!-- MAIN SACRED TIMELINE CORE STRAND -->
-        <path d="M-50,300 C200,150 480,450 780,220 C1080,40 1320,380 1550,250" class="loki-main-timeline" filter="url(#timelineGlow)" />
-        
-        <!-- DASHED ENERGY FLOW STRAND -->
-        <path d="M-50,300 C200,150 480,450 780,220 C1080,40 1320,380 1550,250" class="loki-pulse-strand" />
-
-        <!-- NEXUS BRANCH TIMELINES -->
-        <path d="M320,240 C420,100 580,80 680,140" class="loki-branch-thread" />
-        <path d="M780,220 C880,360 1020,420 1150,320" class="loki-branch-thread" />
-        <path d="M1080,40 C1180,120 1280,60 1380,150" class="loki-branch-thread" />
-      </svg>
-
-      <!-- TEMPORAL EVENT NODES -->
-      <div class="loki-node loki-node-1" title="2022 — Engineering Foundation">
-        <span class="node-pulse-ring"></span>
-        <span class="node-core"></span>
-        <span class="node-label">2022 · B.Tech ECE</span>
-      </div>
-
-      <div class="loki-node loki-node-2" title="2024 — Embedded Firmware & IoT">
-        <span class="node-pulse-ring"></span>
-        <span class="node-core"></span>
-        <span class="node-label">2024 · IoT &amp; Hardware</span>
-      </div>
-
-      <div class="loki-node loki-node-3" title="2025 — Telemetry & TinyML Exploration">
-        <span class="node-pulse-ring"></span>
-        <span class="node-core"></span>
-        <span class="node-label">2025 · TinyML &amp; Systems</span>
-      </div>
-
-      <div class="loki-node loki-node-4" title="2026 — Future Engineering Horizon">
-        <span class="node-pulse-ring"></span>
-        <span class="node-core"></span>
-        <span class="node-label">2026 · Future Horizon</span>
-      </div>
-    </div>
 
     <div class="container">
       <div class="hero-grid">
@@ -152,7 +88,7 @@
         <div class="hero-main-content">
           <!-- Impact Headline -->
           <h1 class="hero-impact-title fade-in">
-            HI, I'M NAVIN KUMAR <span class="accent">S</span>.
+            HI, I AM NAVIN KUMAR <span class="accent">S</span>.
           </h1>
 
           <!-- Status Bar & Badges -->
@@ -170,10 +106,10 @@
           <!-- Quoted Bio Paragraphs -->
           <div class="quoted-bio-stack fade-in">
             <p class="quoted-bio">
-              “ I am Navin Kumar S, an electronics and technology enthusiast focused on embedded systems, IoT, microcontroller firmware, hardware prototyping and experimental engineering. ”
+              I am Navin Kumar S, an electronics and technology enthusiast focused on embedded systems, IoT, microcontroller firmware, hardware prototyping and experimental engineering.
             </p>
             <p class="quoted-bio">
-              “ I enjoy transforming technical concepts into working prototypes — combining electronics, microcontrollers, sensors, software and intelligent algorithms to create practical systems. ”
+              I enjoy transforming technical concepts into working prototypes — combining electronics, microcontrollers, sensors, software and intelligent algorithms to create practical systems.
             </p>
           </div>
 
@@ -227,7 +163,7 @@
         <!-- Left Column: Bio Narrative & Specialization Pills -->
         <div class="about-bio-col">
           <p class="about-text">
-            I am an Electronics and Communication Engineering (ECE) student at SRM Institute of Science and Technology, driven by a passion for creating tangible solutions through hardware-software co-design. My technical work spans embedded C/C++ programming, IoT system architecture, sensor integration, and modern web development.
+            I am an Electronics and Communication Engineering (ECE) student at SIMATS University, Chennai, driven by a passion for creating tangible solutions through hardware-software co-design. My technical work spans embedded C/C++ programming, IoT system architecture, sensor integration, and modern web development.
           </p>
           <p class="about-text">
             I specialize in transforming complex engineering concepts into functional prototypes — ranging from automatic traffic signal controllers and real-time TDS water quality telemetry to TinyML predictive maintenance models for industrial machinery.
@@ -284,7 +220,7 @@
             </div>
             <div class="about-card-info">
               <h3 class="about-card-title">Academic Background</h3>
-              <p class="about-card-desc">B.Tech ECE at SRM Institute of Science and Technology (2022–2026 Batch).</p>
+              <p class="about-card-desc">B.E. ECE at SIMATS University, Chennai (2025–2029 Batch).</p>
             </div>
           </div>
 
@@ -406,7 +342,7 @@
     <div class="container">
 
       <div class="section-header reveal">
-        <span class="section-label">What I've Built</span>
+        <span class="section-label">What I Have Built</span>
         <h2 class="section-title">Featured Projects</h2>
       </div>
 
@@ -492,6 +428,44 @@
         </article>
 
         <!-- Project 3 -->
+        <article class="project-card reveal card-clickable" id="project-elder-care-fall-detection" onclick="window.location.href='project-elder-care-fall-detection.html';">
+          <div class="project-card-inner">
+            <div class="project-card-top-bar">
+              <span class="project-icon-badge" aria-label="IoT Elder Care Project">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" fill="none"/>
+                </svg>
+              </span>
+              <span class="project-header-badge">Internet of Things (IoT)</span>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">
+                <a href="project-elder-care-fall-detection.html" class="project-title-link">IoT-Based Smart Elder Care System with Real-Time Fall Detection</a>
+              </h3>
+              <p class="project-desc">
+                An IoT monitoring system designed to improve elderly safety using MPU6050 fall detection, DHT22 environmental sensors, and ESP32 real-time emergency alerts.
+              </p>
+              <div class="project-tags" aria-label="Technologies used">
+                <span class="project-tag">ESP32</span>
+                <span class="project-tag">MPU6050</span>
+                <span class="project-tag">DHT22</span>
+                <span class="project-tag">IoT</span>
+                <span class="project-tag">Emergency Alert</span>
+              </div>
+              <div class="project-actions">
+                <a href="project-elder-care-fall-detection.html" class="btn btn-sm btn-primary" id="p3-view" onclick="event.stopPropagation();">View Full Details &rarr;</a>
+                <a href="https://github.com/SNK9728" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost" id="p3-github" aria-label="GitHub repository for IoT Elder Care System" onclick="event.stopPropagation();">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
         <article class="project-card reveal card-clickable" id="project-predictive-maintenance" onclick="window.location.href='project-tinyml-predictive-maintenance.html';">
           <div class="project-card-inner">
             <div class="project-card-top-bar">
@@ -522,44 +496,8 @@
                 <span class="project-tag">Embedded C/C++</span>
               </div>
               <div class="project-actions">
-                <a href="project-tinyml-predictive-maintenance.html" class="btn btn-sm btn-primary" id="p3-view" onclick="event.stopPropagation();">View Full Details &rarr;</a>
-                <a href="https://github.com/SNK9728" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost" id="p3-github" aria-label="GitHub repository for Predictive Maintenance System" onclick="event.stopPropagation();">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                  </svg>
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 4 -->
-        <article class="project-card reveal" id="project-gauss-jordan">
-          <div class="project-card-inner">
-            <div class="project-card-top-bar">
-              <span class="project-icon-badge" aria-label="Mathematics Project">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="4" y="2" width="16" height="20" rx="2" fill="none"/>
-                  <line x1="8" y1="6" x2="16" y2="6"/>
-                  <line x1="16" y1="14" x2="16" y2="18"/>
-                  <path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/>
-                </svg>
-              </span>
-              <span class="project-header-badge">Mathematics</span>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Gauss-Jordan Linear System Solver</h3>
-              <p class="project-desc">
-                An Arduino-based mathematical system that solves linear equations using the Gauss-Jordan elimination method.
-              </p>
-              <div class="project-tags" aria-label="Technologies used">
-                <span class="project-tag">Arduino</span>
-                <span class="project-tag">C++</span>
-                <span class="project-tag">Mathematics</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://github.com/SNK9728" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost" id="p4-github" aria-label="GitHub repository for Gauss-Jordan Solver">
+                <a href="project-tinyml-predictive-maintenance.html" class="btn btn-sm btn-primary" id="p4-view" onclick="event.stopPropagation();">View Full Details &rarr;</a>
+                <a href="https://github.com/SNK9728" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost" id="p4-github" aria-label="GitHub repository for Predictive Maintenance System" onclick="event.stopPropagation();">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
                   </svg>
@@ -724,7 +662,7 @@
 
       <div class="section-header reveal">
         <span class="section-label">Get In Touch</span>
-        <h2 class="section-title">Let's Connect</h2>
+        <h2 class="section-title">Connect With Me</h2>
       </div>
 
       <p class="contact-intro reveal">
@@ -945,7 +883,7 @@
           </div>
           <div class="admin-field">
             <label for="edit-institution">College / Institution Name</label>
-            <input type="text" id="edit-institution" placeholder="e.g. SRM Institute of Science and Technology" />
+            <input type="text" id="edit-institution" placeholder="e.g. SIMATS University, Chennai" />
           </div>
           <div class="admin-field">
             <label for="edit-cgpa">CGPA / Score</label>

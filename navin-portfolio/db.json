@@ -1,7 +1,7 @@
 {
   "portfolio": {
     "heroBadge": "● Engineering Student & Tech Enthusiast",
-    "heroTitle": "Hi, I'm Navin Kumar S",
+    "heroTitle": "Hi, I am Navin Kumar S",
     "heroSubtitle": "ECE Student | Electronics & Technology Enthusiast",
     "heroIntro": "I am an Electronics and Communication Engineering student passionate about embedded systems, web development, IoT, electronics, and hardware-software integration. I enjoy building practical engineering solutions and learning new technologies through hands-on projects.",
     "techTags": "Web Development, Embedded Systems, Electronics, IoT, Chip Design",
@@ -101,6 +101,28 @@
     },
     {
       "id": "3",
+      "title": "IoT-Based Smart Elder Care System with Real-Time Fall Detection",
+      "shortDesc": "An IoT-based monitoring system designed to improve elderly safety using MPU6050 accelerometer fall detection, DHT22 environmental sensors, and ESP32 real-time emergency alert telemetry.",
+      "fullDesc": "This project is an IoT-based monitoring system designed to improve the safety of elderly people. It uses sensors such as an MPU6050 accelerometer to detect sudden falls and DHT22 to monitor environmental conditions. The system processes the sensor data using an ESP32 and can provide real-time alerts when abnormal movement or a possible fall is detected.",
+      "category": "Internet of Things (IoT)",
+      "technologies": ["ESP32", "MPU6050 Accelerometer", "DHT22 Sensor", "Internet of Things (IoT)", "Emergency Alert System", "Embedded C/C++"],
+      "features": [
+        "Real-time fall detection",
+        "Motion and activity monitoring",
+        "Temperature and humidity monitoring",
+        "ESP32-based IoT connectivity",
+        "Emergency alert system",
+        "Continuous elderly safety monitoring"
+      ],
+      "architecture": "Sensors (MPU6050 & DHT22) → ESP32 Microcontroller → 3-Axis Impact & Motion Vector Analysis → Emergency Alert Trigger & IoT Telemetry",
+      "codeSnippet": "// IoT Smart Elder Care System - Fall Detection Core\nvoid checkElderSafety() {\n  sensors_event_t a, g, temp;\n  mpu.getEvent(&a, &g, &temp);\n  float mag = sqrt(a.acceleration.x * a.acceleration.x + a.acceleration.y * a.acceleration.y + a.acceleration.z * a.acceleration.z) / 9.81;\n  if (mag > FALL_THRESHOLD) {\n    triggerEmergencyAlert(\"CRITICAL: Sudden Fall Detected!\", mag);\n  }\n  publishIoTTelemetry(mag, dht.readTemperature(), dht.readHumidity());\n}",
+      "github": "https://github.com/SNK9728",
+      "photo": "images/project-elder-care-fall-detection.jpg",
+      "video": "images/project-elder-care-fall-detection.mp4",
+      "demo": "project-elder-care-fall-detection.html"
+    },
+    {
+      "id": "4",
       "title": "TinyML-Based Predictive Maintenance System for Industrial Motors",
       "shortDesc": "An embedded system designed to monitor motor vibration and temperature data for real-time fault detection using sensors and TinyML.",
       "fullDesc": "A TinyML-Based Predictive Maintenance System is an embedded system designed to monitor the condition of industrial motors and identify early signs of faults. Sensors such as an MPU6050 accelerometer and DHT22 temperature sensor collect vibration and temperature data from the motor. The collected data is processed using a TinyML model to detect abnormal operating conditions and predict potential motor failures before they occur.",
@@ -119,24 +141,6 @@
       "github": "https://github.com/SNK9728",
       "video": "images/project-predictive-maintenance.mp4",
       "demo": "project-tinyml-predictive-maintenance.html"
-    },
-    {
-      "id": "4",
-      "title": "Gauss-Jordan Linear System Solver",
-      "shortDesc": "An Arduino-based mathematical system that solves linear equations using the Gauss-Jordan elimination method.",
-      "fullDesc": "A dedicated embedded math processor programmed on Arduino hardware capable of solving systems of N linear equations with N unknowns. Implements partial pivoting and row reduction in C++ with minimal dynamic RAM footprint.",
-      "category": "Embedded Computation & Mathematics",
-      "technologies": ["Arduino", "C++", "Mathematics", "Gauss-Jordan Elimination", "Keypad & LCD"],
-      "features": [
-        "Solves N x N coefficient linear matrix systems directly on microcontrollers",
-        "Partial pivoting algorithm to avoid division by zero and numerical instability",
-        "Keypad matrix input with step-by-step display on LCD screen",
-        "High computational efficiency with execution time < 15ms"
-      ],
-      "architecture": "Matrix Keypad -> SRAM Matrix Storage -> Gauss-Jordan Row Elimination Engine -> Vector Solution Display on LCD",
-      "codeSnippet": "// Gauss-Jordan Row Elimination Core Loop\nfor (int i = 0; i < n; i++) {\n  float pivot = mat[i][i];\n  for (int j = 0; j <= n; j++) mat[i][j] /= pivot;\n  for (int k = 0; k < n; k++) {\n    if (k != i) {\n      float factor = mat[k][i];\n      for (int j = 0; j <= n; j++) mat[k][j] -= factor * mat[i][j];\n    }\n  }\n}",
-      "github": "https://github.com/SNK9728",
-      "demo": "#"
     },
     {
       "id": "5",
