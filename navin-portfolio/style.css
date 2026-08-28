@@ -127,19 +127,19 @@ button {
   max-width: 1200px;
   z-index: 1000;
   background: rgba(14, 14, 14, 0.75);
-  border: 1px solid rgba(255, 107, 0, 0.25);
+  border: 1px solid var(--accent-dim);
   border-radius: 999px;
   backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 107, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7), 0 0 25px var(--accent-dim2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar.scrolled {
   top: 10px;
   background: rgba(8, 8, 8, 0.88);
-  border-color: rgba(255, 107, 0, 0.45);
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.85), 0 0 30px rgba(255, 107, 0, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border-color: var(--accent);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.85), 0 0 30px var(--accent-dim), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .nav-container {
@@ -180,8 +180,8 @@ button {
   font-weight: 700;
   font-size: 0.70rem;
   letter-spacing: 0.08em;
-  background: rgba(255, 107, 0, 0.12);
-  border: 1px solid rgba(255, 107, 0, 0.3);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-dim);
   padding: 2px 8px;
   border-radius: 20px;
   text-transform: uppercase;
@@ -211,16 +211,12 @@ button {
   white-space: nowrap;
 }
 
-.nav-link:hover {
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.06);
-}
-
+.nav-link:hover,
 .nav-link.active {
-  color: var(--accent) !important;
-  background: linear-gradient(135deg, rgba(255, 107, 0, 0.22), rgba(255, 140, 42, 0.12));
-  border-color: rgba(255, 107, 0, 0.45);
-  box-shadow: 0 0 14px rgba(255, 107, 0, 0.25);
+  color: #ffffff !important;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
   font-weight: 700;
 }
 
@@ -233,37 +229,76 @@ button {
 .nav-status-badge {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 6px 14px;
+  gap: 8px;
+  padding: 6px 16px;
   border-radius: 999px;
-  background: rgba(52, 199, 89, 0.12);
-  border: 1px solid rgba(52, 199, 89, 0.35);
-  color: #34C759;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(0, 240, 255, 0.1));
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #10b981;
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   text-decoration: none;
-  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
+}
+
+.nav-status-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: left 0.6s ease;
+}
+
+.nav-status-badge:hover::before {
+  left: 100%;
 }
 
 .nav-status-badge:hover {
-  background: rgba(52, 199, 89, 0.22);
-  box-shadow: 0 0 14px rgba(52, 199, 89, 0.35);
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.28), rgba(0, 240, 255, 0.2));
+  border-color: rgba(16, 185, 129, 0.8);
+  color: #34d399;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+  transform: translateY(-2px) scale(1.02);
 }
 
 .status-pulse-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #34C759;
-  box-shadow: 0 0 8px #34C759;
-  animation: statusPulse 2s infinite ease-in-out;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: statusRadarPulse 1.8s infinite ease-in-out;
 }
 
-@keyframes statusPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.45); opacity: 0.5; }
+.status-badge-arrow {
+  font-size: 0.85rem;
+  transition: transform 0.25s ease;
+}
+
+.nav-status-badge:hover .status-badge-arrow {
+  transform: translate(2px, -2px);
+}
+
+@keyframes statusRadarPulse {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
 }
 
 /* Hamburger */
@@ -306,7 +341,7 @@ button {
   left: 0;
   right: 0;
   background: rgba(12, 12, 12, 0.94);
-  border: 1px solid rgba(255, 107, 0, 0.35);
+  border: 1px solid var(--accent-dim);
   border-radius: 20px;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -314,7 +349,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 107, 0, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 30px var(--accent-dim2);
   opacity: 0;
   visibility: hidden;
   max-height: none;
@@ -347,9 +382,10 @@ button {
 
 .mobile-link:hover,
 .mobile-link.active {
-  color: var(--accent) !important;
-  background: rgba(255, 107, 0, 0.16);
-  border-color: rgba(255, 107, 0, 0.35);
+  color: #ffffff !important;
+  background: transparent;
+  border-color: transparent;
+  font-weight: 700;
 }
 
 /* ── 6. BUTTONS ───────────────────────────────────────────── */
@@ -771,7 +807,7 @@ button {
 .hero-photo-card:hover {
   transform: translateY(-6px);
   border-color: var(--accent);
-  box-shadow: 0 20px 50px rgba(255, 107, 0, 0.15);
+  box-shadow: 0 20px 50px var(--accent-dim);
 }
 
 .photo-card-inner {
@@ -945,8 +981,8 @@ button {
   width: 42px;
   height: 42px;
   border-radius: 8px;
-  background: rgba(255, 107, 0, 0.12);
-  border: 1px solid rgba(255, 107, 0, 0.3);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-dim);
   color: var(--accent);
   display: flex;
   align-items: center;
@@ -1090,6 +1126,8 @@ button {
 
 .cert-badge {
   display: inline-block;
+  width: fit-content;
+  align-self: flex-start;
   font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -3633,6 +3671,512 @@ button {
     animation: none !important;
   }
 }
+
+/* ============================================================
+   ENGINEERING HIGHLIGHTS METRICS BAR
+============================================================ */
+.metrics-bar-section {
+  position: relative;
+  background: var(--bg-2);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  padding: 30px 0;
+  margin-top: -20px;
+  z-index: 5;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.metric-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-light);
+  padding: 16px 20px;
+  border-radius: 12px;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  background: var(--accent-dim2);
+}
+
+.metric-icon {
+  font-size: 1.8rem;
+}
+
+.metric-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-number {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.metric-label {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+
+
+/* ============================================================
+   THEME ACCENTS & HIGH-TECH CYBER GRID PATTERN
+============================================================ */
+/* Cyber Grid Overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+
+
+/* Interactive Cursor Spotlight Effect for Cards */
+.project-card,
+.about-card,
+.cert-card,
+.contact-card,
+.metric-card {
+  position: relative;
+}
+
+.project-card::after,
+.about-card::after,
+.cert-card::after,
+.contact-card::after,
+.metric-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--accent-dim),
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-card:hover::after,
+.about-card:hover::after,
+.cert-card:hover::after,
+.contact-card:hover::after,
+.metric-card:hover::after,
+.resume-download-card:hover::after,
+.resume-paper:hover::after {
+  opacity: 1;
+}
+
+/* =============================================================
+   RESUME SECTION STYLES
+   ============================================================= */
+.resume-download-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 32px;
+  margin-bottom: 36px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.resume-download-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.resume-download-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent);
+}
+
+.resume-download-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.resume-download-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.resume-download-text h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.resume-download-text p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.resume-download-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Resume Paper Container */
+.resume-paper {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.resume-paper-header {
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 28px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.resume-paper-name {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.resume-paper-tagline {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.resume-contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.resume-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resume-contact-item svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.resume-contact-item a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.resume-block {
+  margin-bottom: 36px;
+}
+
+.resume-block-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px dashed var(--border-light);
+  padding-bottom: 8px;
+}
+
+.resume-title-icon {
+  font-size: 1.1rem;
+}
+
+.resume-summary-text {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.resume-paper-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+
+@media (max-width: 900px) {
+  .resume-paper-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .resume-download-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.resume-skill-group {
+  margin-bottom: 20px;
+}
+
+.resume-skill-group h4 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+
+.resume-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.r-pill {
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.r-pill:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+.r-pill-accent {
+  background: var(--accent-dim);
+  border-color: rgba(255, 107, 0, 0.3);
+  color: var(--accent);
+}
+
+.resume-item {
+  margin-bottom: 24px;
+  padding-left: 16px;
+  border-left: 2px solid var(--border-light);
+  transition: border-color 0.2s ease;
+}
+
+.resume-item:hover {
+  border-left-color: var(--accent);
+}
+
+.resume-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.resume-item-role {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.resume-item-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+  background: var(--accent-dim);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.resume-item-org {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.resume-bullet-list {
+  padding-left: 16px;
+  margin-top: 6px;
+}
+
+.resume-bullet-list li {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+/* =============================================================
+   RESPONSIVE AUDIT POLISH & MOBILE FIXES
+   ============================================================= */
+
+/* Ensure global horizontal scroll prevention */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Resume Section Mobile Adaptations */
+@media (max-width: 600px) {
+  .resume-paper {
+    padding: 24px 16px;
+    border-radius: 14px;
+  }
+  
+  .resume-download-card {
+    padding: 20px 16px;
+    gap: 16px;
+  }
+
+  .resume-paper-name {
+    font-size: 1.7rem;
+  }
+
+  .resume-contact-grid {
+    gap: 12px 16px;
+  }
+
+  .resume-contact-item {
+    font-size: 0.84rem;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 500px) {
+  .resume-item-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .resume-item-date {
+    font-size: 0.75rem;
+  }
+
+  .output-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+/* Project Details & Components Grid Fallbacks (< 480px) */
+@media (max-width: 480px) {
+  .components-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-list {
+    grid-template-columns: 1fr;
+  }
+
+  .circuit-images-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modules-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .working-flow-container {
+    padding: 0 4px;
+  }
+
+  .flow-step {
+    gap: 10px;
+  }
+
+  .flow-node {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+  }
+
+  .flow-card {
+    padding: 14px 16px;
+  }
+}
+
+
+
+
+
+
 
 
 

@@ -1012,4 +1012,10 @@ img, svg {
   .interests-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
 }
+

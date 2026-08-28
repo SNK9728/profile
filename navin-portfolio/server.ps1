@@ -141,6 +141,7 @@ while ($listener.IsListening) {
             ".json" { $response.ContentType = "application/json; charset=utf-8" }
             ".svg"  { $response.ContentType = "image/svg+xml" }
             ".png"  { $response.ContentType = "image/png" }
+            ".docx" { $response.ContentType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document" }
             ".jpg"  { 
                 try {
                     $txt = [System.Text.Encoding]::UTF8.GetString($bytes)

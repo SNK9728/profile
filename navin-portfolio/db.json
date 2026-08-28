@@ -18,23 +18,11 @@
     "cgpa": "7.7 / 10",
     "year": "2025 — 2029",
     "skillsLang": "HTML, CSS, JavaScript, C, C++",
-    "skillsHW": "Arduino, ESP32, Embedded Systems, IoT, Electronics",
-    "skillsTools": "Git, GitHub"
+    "skillsHW": "Arduino, ESP32, Embedded Systems, IoT, Electronics"
   },
   "certificates": [
     {
       "id": "cert-1",
-      "title": "Hackathon Champions — Success Journey Program",
-      "type": "Certificate of Participation",
-      "issuer": "SIMATS Engineering Hackathon Club",
-      "date": "08 Nov 2025",
-      "credentialId": "SIMATS-HACK-2025",
-      "image": "images/cert-hackathon.jpg",
-      "fullDesc": "Participated in the Hackathon Champions – Success Journey Program organized by the SIMATS Engineering Hackathon Club. The program provided an opportunity to engage in a hackathon environment, explore innovative problem-solving, and gain experience in collaborative technical activities.",
-      "tags": ["Hackathon", "Problem Solving", "Innovation", "Teamwork", "Technical Skills"]
-    },
-    {
-      "id": "cert-2",
       "title": "IoT Sensors and Edge Processing",
       "issuer": "Coursera / Industry Certification",
       "date": "2024",
@@ -43,7 +31,7 @@
       "tags": ["IoT", "ESP32", "MQTT", "Sensors"]
     },
     {
-      "id": "cert-3",
+      "id": "cert-2",
       "title": "C++ Programming for Firmware & Hardware Integration",
       "issuer": "Udemy / Skill Academy",
       "date": "2023",
@@ -52,7 +40,7 @@
       "tags": ["C++", "Firmware", "Data Structures"]
     },
     {
-      "id": "cert-4",
+      "id": "cert-3",
       "title": "PCB Design & Circuit Simulation",
       "issuer": "Zyronix Tech Academy",
       "date": "2023",
@@ -78,7 +66,6 @@
       ],
       "architecture": "Power Supply Unit → Arduino UNO (ATmega328P) → GPIO Digital Pin Control → Current-Limiting Resistors → Signal LEDs (Red / Yellow / Green)",
       "codeSnippet": "// Automatic Traffic Light System using Arduino UNO\nconst int RED_LED = 12;\nconst int YELLOW_LED = 11;\nconst int GREEN_LED = 10;\n\nvoid setup() {\n  pinMode(RED_LED, OUTPUT);\n  pinMode(YELLOW_LED, OUTPUT);\n  pinMode(GREEN_LED, OUTPUT);\n}\n\nvoid loop() {\n  // Red Light - Stop (10 Seconds)\n  digitalWrite(RED_LED, HIGH);\n  digitalWrite(YELLOW_LED, LOW);\n  digitalWrite(GREEN_LED, LOW);\n  delay(10000);\n\n  // Green Light - Go (10 Seconds)\n  digitalWrite(RED_LED, LOW);\n  digitalWrite(GREEN_LED, HIGH);\n  delay(10000);\n\n  // Yellow Light - Prepare (3 Seconds)\n  digitalWrite(GREEN_LED, LOW);\n  digitalWrite(YELLOW_LED, HIGH);\n  delay(3000);\n}",
-      "github": "https://github.com/SNK9728",
       "demo": "#"
     },
     {
@@ -96,7 +83,6 @@
       ],
       "architecture": "Grid Power Lines → ACS712/ZMPT101B Probes → ESP32 Edge AI Processor → Anomaly Detection -> SSR Relay Isolation & Cloud Telemetry",
       "codeSnippet": "// Edge-AI Current Leakage Calculation\nfloat evaluateGridLeakage(float i_phase, float i_neutral) {\n  float leakage = fabs(i_phase - i_neutral);\n  if (leakage > LEAKAGE_LIMIT_MA) {\n    triggerGridRelayTrip();\n    publishFaultAlert(leakage);\n  }\n  return leakage;\n}",
-      "github": "https://github.com/SNK9728",
       "demo": "#"
     },
     {
@@ -116,7 +102,6 @@
       ],
       "architecture": "Sensors (MPU6050 & DHT22) → ESP32 Microcontroller → 3-Axis Impact & Motion Vector Analysis → Emergency Alert Trigger & IoT Telemetry",
       "codeSnippet": "// IoT Smart Elder Care System - Fall Detection Core\nvoid checkElderSafety() {\n  sensors_event_t a, g, temp;\n  mpu.getEvent(&a, &g, &temp);\n  float mag = sqrt(a.acceleration.x * a.acceleration.x + a.acceleration.y * a.acceleration.y + a.acceleration.z * a.acceleration.z) / 9.81;\n  if (mag > FALL_THRESHOLD) {\n    triggerEmergencyAlert(\"CRITICAL: Sudden Fall Detected!\", mag);\n  }\n  publishIoTTelemetry(mag, dht.readTemperature(), dht.readHumidity());\n}",
-      "github": "https://github.com/SNK9728",
       "photo": "images/project-elder-care-fall-detection.jpg",
       "video": "images/project-elder-care-fall-detection.mp4",
       "demo": "project-elder-care-fall-detection.html"
@@ -138,7 +123,6 @@
       ],
       "architecture": "Industrial Motor → MPU6050 & DHT22 Sensors → Arduino/ESP32 TinyML Model → Real-Time Fault Telemetry",
       "codeSnippet": "// TinyML Motor Fault Classification\nvoid loop() {\n  float ax, ay, az, temp;\n  readMPU6050vibrations(&ax, &ay, &az);\n  temp = readDHT22temperature();\n  int result = tinyML_classify(ax, ay, az, temp);\n  if (result == FAULT_DETECTED) {\n    triggerMaintenanceAlert();\n  }\n}",
-      "github": "https://github.com/SNK9728",
       "video": "images/project-predictive-maintenance.mp4",
       "demo": "project-tinyml-predictive-maintenance.html"
     },
@@ -157,7 +141,6 @@
       ],
       "architecture": "Hydro-Probes (TDS, pH, Turbidity) -> Signal Amplifier -> Analog-to-Digital Processing -> Water Quality Index Classifier -> LED & OLED Display",
       "codeSnippet": "// Water Quality Index Classification\nvoid classifyWaterSafety(float tdsPPM, float pHValue, float turbidityNTU) {\n  if (tdsPPM < 300 && pHValue >= 6.5 && pHValue <= 8.5 && turbidityNTU < 5) {\n    setTrafficLight(COLOR_GREEN); // Safe drinking water\n  } else if (tdsPPM < 600 && pHValue >= 6.0 && pHValue <= 9.0) {\n    setTrafficLight(COLOR_YELLOW); // Moderate / Industrial use\n  } else {\n    setTrafficLight(COLOR_RED); // Contaminated / Unsafe\n  }\n}",
-      "github": "https://github.com/SNK9728",
       "demo": "#"
     }
   ]

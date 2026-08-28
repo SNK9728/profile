@@ -113,33 +113,43 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  /* ── 3. ACTIVE NAV LINK (Intersection Observer) ──────────── */
-  const navObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          setActiveLink(id);
-        }
-      });
-    },
-    {
-      rootMargin: '-40% 0px -55% 0px',
-      threshold: 0,
-    }
-  );
-
-  sections.forEach((sec) => navObserver.observe(sec));
+  /* ── 3. ACTIVE NAV LINK & SCROLLSPY ───────────────────────── */
+  let isManualClickScroll = false;
+  let clickTimeout = null;
 
   function setActiveLink(sectionId) {
+    if (!sectionId) return;
     desktopLinks.forEach((link) => {
-      const href = link.getAttribute('href').replace('#', '');
+      const href = (link.getAttribute('href') || '').replace('#', '');
       link.classList.toggle('active', href === sectionId);
     });
     mobileLinks.forEach((link) => {
-      const href = link.getAttribute('href').replace('#', '');
+      const href = (link.getAttribute('href') || '').replace('#', '');
       link.classList.toggle('active', href === sectionId);
     });
+  }
+
+  function updateActiveNavOnScroll() {
+    if (isManualClickScroll || sections.length === 0) return;
+
+    const navH = navbar ? navbar.offsetHeight : 80;
+    const scrollPos = window.scrollY + navH + 100;
+    let currentId = 'home';
+
+    if ((window.innerHeight + Math.ceil(window.scrollY)) >= document.documentElement.scrollHeight - 50) {
+      const lastSec = sections[sections.length - 1];
+      if (lastSec) currentId = lastSec.getAttribute('id');
+    } else {
+      sections.forEach((sec) => {
+        const top = sec.offsetTop;
+        const height = sec.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          currentId = sec.getAttribute('id');
+        }
+      });
+    }
+
+    setActiveLink(currentId);
   }
 
 
@@ -192,14 +202,26 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
       const href = anchor.getAttribute('href');
-      if (href === '#') return;
+      if (!href || href === '#') return;
 
       const target = document.querySelector(href);
       if (!target) return;
 
       e.preventDefault();
-      const navH   = navbar.offsetHeight;
-      const top    = target.getBoundingClientRect().top + window.scrollY - navH;
+      const targetId = href.replace('#', '');
+
+      // Immediately move orange active highlight to clicked tab
+      setActiveLink(targetId);
+
+      // Lock scrollspy during smooth scroll animation
+      isManualClickScroll = true;
+      clearTimeout(clickTimeout);
+      clickTimeout = setTimeout(() => {
+        isManualClickScroll = false;
+      }, 850);
+
+      const navH = navbar ? navbar.offsetHeight : 80;
+      const top  = target.getBoundingClientRect().top + window.scrollY - navH + 2;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
@@ -209,6 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function onScroll() {
     handleNavbarScroll();
     handleBackToTop();
+    updateActiveNavOnScroll();
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -505,7 +528,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Skills
     if (document.getElementById('edit-skills-lang')) document.getElementById('edit-skills-lang').value = data.skillsLang || 'HTML, CSS, JavaScript, C, C++';
     if (document.getElementById('edit-skills-hw')) document.getElementById('edit-skills-hw').value = data.skillsHW || 'Arduino, ESP32, Embedded Systems, IoT, Electronics';
-    if (document.getElementById('edit-skills-tools')) document.getElementById('edit-skills-tools').value = data.skillsTools || 'Git, GitHub';
 
     // Projects
     const projs = data.projects || [];
@@ -707,7 +729,6 @@ document.addEventListener('DOMContentLoaded', () => {
         year:          document.getElementById('edit-year')?.value || '',
         skillsLang:    document.getElementById('edit-skills-lang')?.value || '',
         skillsHW:      document.getElementById('edit-skills-hw')?.value || '',
-        skillsTools:   document.getElementById('edit-skills-tools')?.value || '',
       };
 
       const newCertificates = [];
@@ -845,7 +866,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
 
           const ghLink = document.getElementById('pmodal-github');
-          if (ghLink) ghLink.href = proj.github || 'https://github.com/SNK9728';
+          if (ghLink) ghLink.style.display = 'none';
 
           pModal.classList.add('open');
           pModal.setAttribute('aria-hidden', 'false');
@@ -1095,5 +1116,66 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   initUltraRealisticReactorEngine();
+
+
+
+  /* ── 16. THEME ACCENT SWITCHER & SPOTLIGHT TRACKER ───────── */
+  const themeMap = {
+    orange:  { accent: '#FF6B00', hover: '#FF8C2A', dim: 'rgba(255, 107, 0, 0.25)', dim2: 'rgba(255, 107, 0, 0.08)' },
+    cyan:    { accent: '#00F0FF', hover: '#38BDF8', dim: 'rgba(0, 240, 255, 0.25)', dim2: 'rgba(0, 240, 255, 0.08)' },
+    emerald: { accent: '#10B981', hover: '#34D399', dim: 'rgba(16, 185, 129, 0.25)', dim2: 'rgba(16, 185, 129, 0.08)' },
+    purple:  { accent: '#A855F7', hover: '#C084FC', dim: 'rgba(168, 85, 247, 0.25)', dim2: 'rgba(168, 85, 247, 0.08)' }
+  };
+
+  window.setPortfolioTheme = function(themeName) {
+    const t = themeMap[themeName] || themeMap.orange;
+    const root = document.documentElement;
+
+    root.setAttribute('data-theme', themeName);
+    document.body.setAttribute('data-theme', themeName);
+
+    root.style.setProperty('--accent', t.accent);
+    root.style.setProperty('--accent-hover', t.hover);
+    root.style.setProperty('--accent-dim', t.dim);
+    root.style.setProperty('--accent-dim2', t.dim2);
+
+    // Dynamic accent color updates across all elements
+    document.querySelectorAll('.accent, .section-label, .project-header-badge, .badge-tag.accent-tag, .brand-role, .nav-logo-symbol, .project-title-link').forEach(el => {
+      el.style.color = t.accent;
+    });
+
+    document.querySelectorAll('.btn-primary').forEach(el => {
+      el.style.backgroundColor = t.accent;
+    });
+
+    document.querySelectorAll('.accent-dot').forEach((dot) => {
+      if (dot.getAttribute('data-theme-color') === themeName) {
+        dot.classList.add('active');
+        dot.style.borderColor = '#ffffff';
+        dot.style.boxShadow = `0 0 12px ${t.accent}`;
+      } else {
+        dot.classList.remove('active');
+        dot.style.borderColor = 'transparent';
+        dot.style.boxShadow = 'none';
+      }
+    });
+
+    localStorage.setItem('portfolio-theme', themeName);
+  };
+
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'orange';
+  window.setPortfolioTheme(savedTheme);
+
+  // Cursor Spotlight Position Tracker on Cards
+  const spotlightCards = document.querySelectorAll('.project-card, .about-card, .cert-card, .contact-card, .metric-card');
+  spotlightCards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
 
 }); // end DOMContentLoaded
